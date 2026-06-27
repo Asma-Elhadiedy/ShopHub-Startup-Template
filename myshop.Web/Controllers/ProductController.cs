@@ -8,7 +8,6 @@ using myshop.Entities.ViewModels;
 
 namespace myshop.Web.Areas.Admin.Controllers
 {
-    [Area("Admin")]
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -28,8 +27,19 @@ namespace myshop.Web.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetData()
         {
-            var categories = _context.Products;
-            return Json(new {data = categories});
+            var products = _context.Products
+                .Include(x => x.Category)
+                .Select(x => new
+                {
+                    id = x.Id,
+                    name = x.Name,
+                    description = x.Description,
+                    price = x.Price,
+                    categoryName = x.Category.Name
+                })
+                .ToList();
+
+            return Json(new { data = products });
         }
 
         [HttpGet]
@@ -48,7 +58,6 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Create(ProductVM productVM,IFormFile file)
         {
             if (ModelState.IsValid)
@@ -96,7 +105,6 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
         
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(ProductVM productVM, IFormFile? file)
         {
             if (ModelState.IsValid)

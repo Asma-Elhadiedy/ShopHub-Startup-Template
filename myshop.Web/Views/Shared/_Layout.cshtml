@@ -68,11 +68,6 @@
             padding: .9rem 1.6rem;
         }
 
-        main {
-            padding-top: 1.5rem;
-            padding-bottom: 2rem;
-        }
-
         footer {
             background: linear-gradient(90deg,#111,#1b1b1b);
             color: white;
@@ -99,7 +94,7 @@
             <div class="container">
 
                 <a class="navbar-brand nav-link-box home-box"
-                   asp-controller="Home"
+                   asp-controller="Product"
                    asp-action="Index">
                     myshop.Web
                 </a>
@@ -117,17 +112,17 @@
 
                         <li class="nav-item">
                             <a class="nav-link nav-link-box"
-                               asp-controller="Home"
+                               asp-controller="Product"
                                asp-action="Index">
-                                Home
+                                Products
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link nav-link-box"
-                               asp-controller="Home"
-                               asp-action="Privacy">
-                                Privacy
+                               asp-controller="Category"
+                               asp-action="Index">
+                                Categories
                             </a>
                         </li>
 
@@ -145,10 +140,7 @@
 
     <footer class="mt-auto">
         <div class="container text-center">
-            &copy; @DateTime.Now.Year - myshop.Web -
-            <a asp-controller="Home" asp-action="Privacy">
-                Privacy
-            </a>
+            &copy; @DateTime.Now.Year - myshop.Web
         </div>
     </footer>
 

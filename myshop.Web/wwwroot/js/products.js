@@ -2,7 +2,7 @@
 
     var table = $("#mytable").DataTable({
         ajax: {
-            url: "/Admin/Product/GetProducts",
+            url: "/Product/GetData",
             type: "GET",
             datatype: "json"
         },
@@ -15,10 +15,10 @@
                 data: "id",
                 render: function (id) {
                     return `
-                        <a href="/Admin/Product/Edit/${id}" class="btn btn-sm btn-success me-1">
+                        <a href="/Product/Edit/${id}" class="btn btn-sm btn-success me-1">
                             <i class="fa-solid fa-pen"></i>
                         </a>
-                        <a href="/Admin/Product/Delete/${id}" class="btn btn-sm btn-danger">
+                        <a href="/Product/Delete/${id}" class="btn btn-sm btn-danger">
                             <i class="fa-solid fa-trash"></i>
                         </a>
                     `;
@@ -28,22 +28,19 @@
         autoWidth: false,
         scrollX: true,
 
-        // تمكين السحب وتغيير حجم الأعمدة
         colResize: {
             realtime: true
         },
 
-        // التفاف النص تلقائيًا
         createdRow: function (row, data, dataIndex) {
             $('td', row).css('white-space', 'normal');
         }
     });
 
-    // فلترة مخصصة: دمج البحث العام + dropdown الكاتيجوري
     $.fn.dataTable.ext.search.push(
         function (settings, data, dataIndex) {
             var selectedCategory = $('#categoryFilter').val();
-            var category = data[3]; // عمود الكاتيجوري
+            var category = data[3]; 
             var searchTerm = $('#mytable_filter input').val().toLowerCase();
 
             var name = data[0].toLowerCase();
@@ -57,7 +54,6 @@
         }
     );
 
-    // إعادة رسم الجدول عند تغيير dropdown أو البحث العام
     $('#categoryFilter').on('change', function () {
         table.draw();
     });

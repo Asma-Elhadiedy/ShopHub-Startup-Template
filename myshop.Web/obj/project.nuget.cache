@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "swIiMzAw2OM=",
+  "dgSpecHash": "z1NCAIpB6pA=",
   "success": true,
-  "projectFilePath": "D:\\visual-studio-programs\\E-Commerce-Startup-Template\\myshop.Web\\myshop.Web.csproj",
+  "projectFilePath": "D:\\visual-studio-programs\\E-Commerce-Startup-Template\\ShopHub-Startup-Template\\myshop.Web\\myshop.Web.csproj",
   "expectedPackageFiles": [
     "D:\\NuGet_Cache\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "D:\\NuGet_Cache\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

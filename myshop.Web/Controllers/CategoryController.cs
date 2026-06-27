@@ -4,7 +4,6 @@ using myshop.Entities.Models;
 
 namespace myshop.Web.Areas.Admin.Controllers
 {
-    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -28,7 +27,6 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Create(Category category)
         {
             if (ModelState.IsValid)
@@ -54,7 +52,6 @@ namespace myshop.Web.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public IActionResult Edit(Category category)
         {
             if (ModelState.IsValid)
