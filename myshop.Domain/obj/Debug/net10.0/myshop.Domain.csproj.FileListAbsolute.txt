@@ -1,0 +1,13 @@
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\myshop.Domain.csproj.AssemblyReference.cache
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\myshop.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\myshop.Domain.AssemblyInfoInputs.cache
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\myshop.Domain.AssemblyInfo.cs
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\myshop.Domain.csproj.CoreCompileInputs.cache
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\myshop.Domain.sourcelink.json
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\bin\Debug\net10.0\myshop.Domain.deps.json
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\bin\Debug\net10.0\myshop.Domain.dll
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\bin\Debug\net10.0\myshop.Domain.pdb
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\myshop.Domain.dll
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\refint\myshop.Domain.dll
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\myshop.Domain.pdb
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Domain\obj\Debug\net10.0\ref\myshop.Domain.dll

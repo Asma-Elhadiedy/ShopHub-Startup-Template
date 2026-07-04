@@ -1,0 +1,12 @@
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\bin\Debug\net10.0\myshop.BusinessLogic.deps.json
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\bin\Debug\net10.0\myshop.BusinessLogic.dll
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\bin\Debug\net10.0\myshop.BusinessLogic.pdb
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\myshop.BusinessLogic.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\myshop.BusinessLogic.AssemblyInfoInputs.cache
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\myshop.BusinessLogic.AssemblyInfo.cs
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\myshop.BusinessLogic.csproj.CoreCompileInputs.cache
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\myshop.BusinessLogic.sourcelink.json
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\myshop.BusinessLogic.dll
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\refint\myshop.BusinessLogic.dll
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\myshop.BusinessLogic.pdb
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\BusinessLogic\obj\Debug\net10.0\ref\myshop.BusinessLogic.dll
