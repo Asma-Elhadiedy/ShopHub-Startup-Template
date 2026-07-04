@@ -1,6 +1,5 @@
 ﻿
 
-using myshop.Application.Services;
 
 namespace myshop.Web.Controllers;
 
@@ -18,7 +17,7 @@ public class CategoryController(CategoryService _categoryService) : Controller
 
         return View();
     }
-    
+
     [HttpPost]
     public IActionResult Create(Category category)
     {

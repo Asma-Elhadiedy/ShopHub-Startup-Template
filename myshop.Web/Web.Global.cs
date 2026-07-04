@@ -1,9 +1,9 @@
 ﻿
-global using myshop.Web.ViewModels;
-global using myshop.Domain.Entities;
+global using myshop.DAL.Data;
+global using myshop.BLL.Services;
+global using myshop.DAL.Entities;
+global using myshop.BLL.ViewModels;
 global using Microsoft.AspNetCore.Mvc;
-global using myshop.Infrastructure.Data;
 global using Microsoft.EntityFrameworkCore;
+global using myshop.BLL.DependencyInjection;
 global using Microsoft.AspNetCore.Mvc.Rendering;
-global using myshop.Infrastructure.DependencyInjection;
-global using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;

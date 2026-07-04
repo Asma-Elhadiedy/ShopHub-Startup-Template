@@ -50,7 +50,7 @@ public class ProductController : Controller
     }
 
     [HttpPost]
-    public IActionResult Create(ProductVM productVM,IFormFile file)
+    public IActionResult Create(ProductVM productVM, IFormFile file)
     {
         if (ModelState.IsValid)
         {
@@ -61,7 +61,7 @@ public class ProductController : Controller
                 var Upload = Path.Combine(RootPath, @"Images\Products");
                 var ext = Path.GetExtension(file.FileName);
 
-                using (var filestream = new FileStream(Path.Combine(Upload,filename+ext),FileMode.Create))
+                using (var filestream = new FileStream(Path.Combine(Upload, filename + ext), FileMode.Create))
                 {
                     file.CopyTo(filestream);
                 }
@@ -95,7 +95,7 @@ public class ProductController : Controller
 
         return View(productVM);
     }
-    
+
     [HttpPost]
     public IActionResult Edit(ProductVM productVM, IFormFile? file)
     {
@@ -136,7 +136,7 @@ public class ProductController : Controller
 
         return View(productVM.Product);
     }
-    
+
     [HttpDelete]
     public IActionResult Delete(int? id)
     {
