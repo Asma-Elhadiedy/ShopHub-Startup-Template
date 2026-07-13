@@ -11,9 +11,16 @@ const datatableOptions = {
         type: "GET",
     },
     columns: [
-        { data: "name" },
-        { data: "description" },
         {
+            title: 'Name',
+            data: "name"
+        },
+        {
+            title: 'Description',
+            data: "description"
+        },
+        {
+            title: 'Date Created',
             data: "createdTime",
             render: function (data) {
                 return data.split("T")[0];
@@ -21,6 +28,7 @@ const datatableOptions = {
             }
         },
         {
+            title: 'Actions',
             data: "id",
             orderable: false,
             render: function (data) {
