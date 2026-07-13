@@ -21,9 +21,11 @@ public class GenereicRepository<T>(ApplicationDbContext _dbContext) : IGenereicR
             ? await _dbContext.Set<T>().AsNoTracking().ToListAsync()
             : await _dbContext.Set<T>().Where(predicate).AsNoTracking().ToListAsync();
     }
-    public IQueryable<T> GetQueryable(Expression<Func<T, bool>> predicate)
+    public IQueryable<T> GetQueryable(Expression<Func<T, bool>>? predicate)
     {
-        return _dbContext.Set<T>().Where(predicate);
+        return predicate is null
+            ? _dbContext.Set<T>().AsNoTracking()
+            : _dbContext.Set<T>().Where(predicate);
     }
 
 
@@ -31,9 +33,7 @@ public class GenereicRepository<T>(ApplicationDbContext _dbContext) : IGenereicR
 
     public void Remove(T entity) => _dbContext.Set<T>().Remove(entity);
 
-    public Task AddAsync(T entity)
-    {
-        throw new NotImplementedException();
-    }
+    public void Add(T entity) => _dbContext.Set<T>().Add(entity);
+
 
 }

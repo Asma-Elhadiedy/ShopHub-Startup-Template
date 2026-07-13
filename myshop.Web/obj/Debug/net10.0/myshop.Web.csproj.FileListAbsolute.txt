@@ -690,8 +690,6 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\com
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\lipdtyv2u0-{0}-6m5ktcz08b-6m5ktcz08b.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\gy052s402h-{0}-jcitzkfdw9-jcitzkfdw9.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\un5g01c6mr-{0}-iwyywynqhh-iwyywynqhh.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\uaq0n4k7mx-{0}-z2rq46n5xe-z2rq46n5xe.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\uv37jp55qa-{0}-6b9nfc4n3r-6b9nfc4n3r.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\1jdvkxtk8y-{0}-nakmwdwsxp-nakmwdwsxp.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\47fsd6ihdz-{0}-st1cbwfwo5-st1cbwfwo5.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\ax87fs2q4z-{0}-5p029spbuu-5p029spbuu.gz
@@ -807,3 +805,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\sta
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\myshop.Web.csproj.Up2Date
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\myshop.Web.genruntimeconfig.cache
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\ref\myshop.Web.dll
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kzzib16b79-{0}-mgrnnia84d-mgrnnia84d.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\vppsbzsucd-{0}-mfujb7252v-mfujb7252v.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\l2dtgoh887-{0}-1jwq4l2pbl-1jwq4l2pbl.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\uv37jp55qa-{0}-7qewjftgje-7qewjftgje.gz

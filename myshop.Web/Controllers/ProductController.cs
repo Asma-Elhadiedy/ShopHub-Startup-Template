@@ -7,8 +7,6 @@ public class ProductController(IProductService _productService, IWebHostEnvironm
         => View();
 
 
-
-    [HttpGet]
     public async Task<IActionResult> GetData()
     {
         var products = await _productService.GetAllProductsAsync();

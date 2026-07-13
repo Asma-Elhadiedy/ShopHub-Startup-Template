@@ -31,7 +31,7 @@ public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IHostEnvir
     public async Task<bool> CreateProductAsync(ProductVM model)
     {
         var category = _mapper.Map<Category>(model);
-        await _unitOfWork.Repository<Category>().AddAsync(category);
+        _unitOfWork.Repository<Category>().Add(category);
 
         if (await _unitOfWork.CompleteAsync() > 0)
             return true;

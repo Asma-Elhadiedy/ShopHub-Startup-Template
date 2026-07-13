@@ -88,8 +88,10 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\boots
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\dashboard.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\sweetalert2\sweetalert2.all.min.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\categories.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\jquery-ui\jquery-ui.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\pages\dashboard.js
@@ -124,7 +126,6 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\fonta
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\shoppingcart\style.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\.eslintrc.json
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\products.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\order.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\pages\dashboard3.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\site.js
@@ -132,6 +133,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\jquer
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\fontawesome-free\css\v4-shims.css
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\products.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\bootstrap\js\bootstrap.bundle.min.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\sweetalert2\sweetalert2.all.js
@@ -218,6 +220,7 @@ wwwroot\css\alt\adminlte.plugins.css
 wwwroot\css\alt\adminlte.plugins.css.map
 wwwroot\css\alt\adminlte.plugins.min.css
 wwwroot\css\alt\adminlte.plugins.min.css.map
+wwwroot\css\dashboard.css
 wwwroot\css\site.css
 wwwroot\css\summary.css
 wwwroot\customer\assets\favicon.ico
@@ -265,11 +268,12 @@ wwwroot\js\adminlte.js.map
 wwwroot\js\adminlte.min.js
 wwwroot\js\adminlte.min.js.map
 wwwroot\js\demo.js
+wwwroot\js\modules\categories.js
+wwwroot\js\modules\products.js
 wwwroot\js\order.js
 wwwroot\js\pages\dashboard.js
 wwwroot\js\pages\dashboard2.js
 wwwroot\js\pages\dashboard3.js
-wwwroot\js\products.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\LICENSE
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css

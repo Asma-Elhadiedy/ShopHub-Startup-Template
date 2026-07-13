@@ -4,11 +4,15 @@ namespace myshop.Web.Controllers;
 public class CategoryController(ICategoryService _categoryService) : Controller
 {
     public async Task<IActionResult> Index()
-        => View(await _categoryService.GetAllCategoriesAsync());
+        => View();
+
+    public async Task<IActionResult> GetData()
+    {
+        var categories = await _categoryService.GetAllCategoriesAsync();
+        return Json(new { data = categories });
+    }
 
 
-
-    [HttpGet]
     public IActionResult Create()
         => View();
 
@@ -22,8 +26,9 @@ public class CategoryController(ICategoryService _categoryService) : Controller
 
             if (isCreated)
                 TempData["Create"] = "Item has Created Successfully";
+            else
+                TempData["Create"] = "Data has not Updated Successfully";
 
-            TempData["Update"] = "Data has not Updated Successfully";
             return RedirectToAction("Index");
         }
         return View(model);
@@ -32,8 +37,7 @@ public class CategoryController(ICategoryService _categoryService) : Controller
 
 
 
-    [HttpGet]
-    public async Task<IActionResult> EditAsync(int? id)
+    public async Task<IActionResult> Edit(int? id)
     {
         if (id == null | id == 0)
             NotFound();
@@ -53,8 +57,9 @@ public class CategoryController(ICategoryService _categoryService) : Controller
 
             if (isUpdated)
                 TempData["Update"] = "Data has Updated Successfully";
+            else
+                TempData["Update"] = "Data has not Updated Successfully";
 
-            TempData["Update"] = "Data has not Updated Successfully";
             return RedirectToAction("Index");
         }
         return View(model);
@@ -63,7 +68,6 @@ public class CategoryController(ICategoryService _categoryService) : Controller
 
 
 
-    [HttpGet]
     public async Task<IActionResult> Delete(int? id)
     {
         if (id == null | id == 0)
@@ -82,8 +86,9 @@ public class CategoryController(ICategoryService _categoryService) : Controller
 
         if (isDeleted)
             TempData["Delete"] = "Item has Deleted Successfully";
-
-        TempData["Delete"] = "Item has not Deleted Successfully";
+        else
+            TempData["Delete"] = "Item has not Deleted Successfully";
+        
         return RedirectToAction("Index");
     }
 }

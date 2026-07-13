@@ -16,11 +16,11 @@
                 render: function (id) {
                     return `
                         <a href="/Product/Edit/${id}" class="btn btn-success btn-sm">
-                            <i class="fa-solid fa-pen"></i>
+                            <i class="fa-solid fa-pen"></i> Edit
                         </a>
 
                         <button class="btn btn-danger btn-sm">
-                            <i class="fa-solid fa-trash"></i>
+                            <i class="fa-solid fa-trash"></i> Delete
                         </button>
                     `;
                 }

@@ -1,5 +1,6 @@
 ﻿
 global using myshop.DAL.Data;
+global using myshop.BLL.DTOs;
 global using myshop.BLL.Services;
 global using myshop.DAL.Entities;
 global using myshop.BLL.ViewModels;
