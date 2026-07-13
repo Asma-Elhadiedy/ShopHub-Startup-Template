@@ -1,84 +1,89 @@
 ﻿
-
-
 namespace myshop.Web.Controllers;
 
-public class CategoryController(CategoryService _categoryService) : Controller
+public class CategoryController(ICategoryService _categoryService) : Controller
 {
     public async Task<IActionResult> Index()
-    {
-        var categories = await _categoryService.GetAlCategoriesAsync();
-        return View(categories);
-    }
+        => View(await _categoryService.GetAllCategoriesAsync());
+
+
 
     [HttpGet]
     public IActionResult Create()
-    {
+        => View();
 
-        return View();
-    }
 
     [HttpPost]
-    public IActionResult Create(Category category)
+    public async Task<IActionResult> Create(CategoryVM model)
     {
         if (ModelState.IsValid)
         {
-            _categoryService.CreateCategoryAsync(category);
-            TempData["Create"] = "Item has Created Successfully";
+            var isCreated = await _categoryService.CreateCategoryAsync(model);
+
+            if (isCreated)
+                TempData["Create"] = "Item has Created Successfully";
+
+            TempData["Update"] = "Data has not Updated Successfully";
             return RedirectToAction("Index");
         }
-        return View(category);
+        return View(model);
     }
 
+
+
+
     [HttpGet]
-    public IActionResult Edit(int? id)
+    public async Task<IActionResult> EditAsync(int? id)
     {
         if (id == null | id == 0)
-        {
             NotFound();
-        }
-        //var categoryIndb = _categoryService.Find(id);
-        Category categoryIndb = new();
-        return View(categoryIndb);
+
+        var model = await _categoryService.PrepareCategoryModelAsync(id!.Value);
+        if (model is null)
+            return NotFound();
+        return View(model);
     }
 
     [HttpPost]
-    public IActionResult Edit(Category category)
+    public async Task<IActionResult> Edit(CategoryVM model)
     {
         if (ModelState.IsValid)
         {
-            //_categoryService.Categories.Update(category);
+            var isUpdated = await _categoryService.UpdateCategoryAsync(model);
 
-            //_categoryService.SaveChanges();
-            TempData["Update"] = "Data has Updated Successfully";
+            if (isUpdated)
+                TempData["Update"] = "Data has Updated Successfully";
+
+            TempData["Update"] = "Data has not Updated Successfully";
             return RedirectToAction("Index");
         }
-        return View(category);
+        return View(model);
     }
 
+
+
+
     [HttpGet]
-    public IActionResult Delete(int? id)
+    public async Task<IActionResult> Delete(int? id)
     {
         if (id == null | id == 0)
-        {
             NotFound();
-        }
-        //var categoryIndb = _categoryService.Categories.Where(x => x.Id == id).FirstOrDefault();
 
-        Category category = new();
-        return View(category);
+        var model = await _categoryService.PrepareCategoryModelAsync(id!.Value);
+        if (model is null)
+            return NotFound();
+        return View(model);
     }
 
     [HttpPost]
-    public IActionResult DeleteCategory(int? id)
+    public async Task<IActionResult> DeleteCategory(int? id)
     {
-        //var categoryIndb = _categoryService.CreateCategoryAsync() ;
-        //if (categoryIndb == null)
-        //{
-        //    NotFound();
-        //}
-        //_categoryService.CreateCategoryAsync(categoryIndb);
-        TempData["Delete"] = "Item has Deleted Successfully";
+        var isDeleted = await _categoryService.DeleteCategoryAsync(id!.Value);
+
+        if (isDeleted)
+            TempData["Delete"] = "Item has Deleted Successfully";
+
+        TempData["Delete"] = "Item has not Deleted Successfully";
         return RedirectToAction("Index");
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9kq45ravmNo=",
+  "dgSpecHash": "kJ6nD6m8D84=",
   "success": true,
   "projectFilePath": "D:\\Code\\Asma-Elhadiedy\\ShopHub-Startup-Template\\myshop.BLL\\myshop.BLL.csproj",
   "expectedPackageFiles": [
@@ -58,8 +58,8 @@
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.dependencymodel\\2.1.0\\microsoft.extensions.dependencymodel.2.1.0.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.diagnostics\\10.0.9\\microsoft.extensions.diagnostics.10.0.9.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.diagnostics.abstractions\\10.0.9\\microsoft.extensions.diagnostics.abstractions.10.0.9.nupkg.sha512",
-    "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\8.0.0\\microsoft.extensions.fileproviders.abstractions.8.0.0.nupkg.sha512",
-    "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\8.0.1\\microsoft.extensions.hosting.abstractions.8.0.1.nupkg.sha512",
+    "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\10.0.9\\microsoft.extensions.fileproviders.abstractions.10.0.9.nupkg.sha512",
+    "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\10.0.9\\microsoft.extensions.hosting.abstractions.10.0.9.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.identity.core\\10.0.9\\microsoft.extensions.identity.core.10.0.9.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.identity.stores\\10.0.9\\microsoft.extensions.identity.stores.10.0.9.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\microsoft.extensions.localization\\8.0.11\\microsoft.extensions.localization.8.0.11.nupkg.sha512",

@@ -1,11 +1,11 @@
 ﻿
+namespace myshop.BLL.ViewModels.Categories;
 
-namespace myshop.BLL.DTOs;
-
-public class CategoryDto
+public class CategoryVM
 {
     public int Id { get; set; }
 
+    [Required]
     public string Name { get; set; }
 
     public string Description { get; set; }

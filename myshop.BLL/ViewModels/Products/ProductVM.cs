@@ -1,9 +1,5 @@
 ﻿
-
-
-
-
-namespace myshop.BLL.ViewModels;
+namespace myshop.BLL.ViewModels.Products;
 
 public class ProductVM
 {

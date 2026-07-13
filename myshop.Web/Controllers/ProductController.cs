@@ -1,56 +1,29 @@
-﻿namespace myshop.Web.Controllers;
+﻿
+namespace myshop.Web.Controllers;
 
-public class ProductController : Controller
+public class ProductController(IProductService _productService, IWebHostEnvironment _webHostEnvironment) : Controller
 {
-    private readonly ApplicationDbContext _context;
-    private readonly IWebHostEnvironment _webHostEnvironment;
-
-    public ProductController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
-    {
-        _context = context;
-        _webHostEnvironment = webHostEnvironment;
-    }
-
     public IActionResult Index()
-    {
-        return View();
-    }
+        => View();
+
+
 
     [HttpGet]
-    public IActionResult GetData()
+    public async Task<IActionResult> GetData()
     {
-        var products = _context.Products
-            .Include(x => x.Category)
-            .Select(x => new
-            {
-                id = x.Id,
-                name = x.Name,
-                description = x.Description,
-                price = x.Price,
-                categoryName = x.Category.Name
-            })
-            .ToList();
-
+        var products = await _productService.GetAllProductsAsync();
         return Json(new { data = products });
     }
 
     [HttpGet]
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
-        ProductVM productVM = new ProductVM()
-        {
-            Product = new Product(),
-            CategoryList = _context.Categories.Select(x => new SelectListItem
-            {
-                Text = x.Name,
-                Value = x.Id.ToString()
-            })
-        };
-        return View(productVM);
+        var model = await _productService.PrepareProductModelAsync(0);
+        return View(model);
     }
 
     [HttpPost]
-    public IActionResult Create(ProductVM productVM, IFormFile file)
+    public async Task<IActionResult> Create(ProductVM productVM, IFormFile file)
     {
         if (ModelState.IsValid)
         {
@@ -68,36 +41,29 @@ public class ProductController : Controller
                 productVM.Product.Img = @"Images\Products\" + filename + ext;
             }
 
-            _context.Products.Add(productVM.Product);
-            _context.SaveChanges();
+            var isCreated = await _productService.CreateProductAsync(productVM);
             TempData["Create"] = "Item has Created Successfully";
             return RedirectToAction("Index");
         }
         return View(productVM.Product);
     }
+
+
+
     [HttpGet]
-    public IActionResult Edit(int? id)
+    public async Task<IActionResult> Edit(int? id)
     {
         if (id == null || id == 0)
         {
             return NotFound();
         }
 
-        ProductVM productVM = new ProductVM()
-        {
-            Product = _context.Products.FirstOrDefault(x => x.Id == id),
-            CategoryList = _context.Categories.Select(x => new SelectListItem
-            {
-                Text = x.Name,
-                Value = x.Id.ToString()
-            })
-        };
-
-        return View(productVM);
+        var model = await _productService.PrepareProductModelAsync(id!.Value);
+        return View(model);
     }
 
     [HttpPost]
-    public IActionResult Edit(ProductVM productVM, IFormFile? file)
+    public async Task<IActionResult> Edit(ProductVM productVM, IFormFile? file)
     {
         if (ModelState.IsValid)
         {
@@ -127,8 +93,7 @@ public class ProductController : Controller
                 productVM.Product.Img = @"Images\Products\" + filename + ext;
             }
 
-            _context.Products.Update(productVM.Product);
-            _context.SaveChanges();
+            var isUpdated = await _productService.UpdateProductAsync(productVM);
 
             TempData["Update"] = "Data has Updated Successfully";
             return RedirectToAction("Index");
@@ -138,27 +103,12 @@ public class ProductController : Controller
     }
 
     [HttpDelete]
-    public IActionResult Delete(int? id)
+    public async Task<IActionResult> Delete(int id)
     {
-        var productIndb = _context.Products.FirstOrDefault(x => x.Id == id);
-
-        if (productIndb == null)
-        {
-            return Json(new { success = false, message = "Error while Deleting" });
-        }
-
-        _context.Products.Remove(productIndb);
-
-        var oldimg = Path.Combine(_webHostEnvironment.WebRootPath, productIndb.Img.TrimStart('\\'));
-
-        if (System.IO.File.Exists(oldimg))
-        {
-            System.IO.File.Delete(oldimg);
-        }
-
-        _context.SaveChanges();
-
-        return Json(new { success = true, message = "file has been Deleted" });
+        var isDeleted = await _productService.DeleteProductAsync(id);
+        if (isDeleted)
+            return Json(new { success = true, message = "file has been Deleted" });
+        return Json(new { success = false, message = "Error while Deleting" });
     }
 
 

@@ -1,18 +1,57 @@
 ﻿
-
 namespace myshop.BLL.Services;
 
-public class CategoryService(IUnitOfWork _unitOfWork)
+public class CategoryService(IUnitOfWork _unitOfWork, IMapper _mapper) : ICategoryService
 {
-    public async Task<IEnumerable<Category>> GetAlCategoriesAsync()
+    public async Task<IEnumerable<CategoryDto>> GetAllCategoriesAsync()
     {
         return await _unitOfWork.Repository<Category>()
-                                .GetAllAsync(null);
+                                .GetQueryable(null)
+                                .Select(p => new CategoryDto()
+                                {
+                                    Id = p.Id,
+                                    Name = p.Name,
+                                    Description = p.Description
+                                }).ToListAsync();
     }
 
-    public async Task CreateCategoryAsync(Category category)
+    public async Task<CategoryVM?> PrepareCategoryModelAsync(int categoryId)
     {
-        //await _unitOfWork.Categories.AddAsync(category);
-        //await _unitOfWork.SaveChangesAsync();
+        var category = await _unitOfWork.Repository<Category>().GetByIdAsync(categoryId);
+        return category is not null
+            ? _mapper.Map<CategoryVM>(category)
+            : null;
+    }
+
+    public async Task<bool> CreateCategoryAsync(CategoryVM model)
+    {
+        var category = _mapper.Map<Category>(model);
+        await _unitOfWork.Repository<Category>().AddAsync(category);
+
+        if (await _unitOfWork.CompleteAsync() > 0)
+            return true;
+        return false;
+    }
+
+    public async Task<bool> UpdateCategoryAsync(CategoryVM model)
+    {
+        var category = await _unitOfWork.Repository<Category>().GetByIdAsync(model.Id);
+        category = _mapper.Map(model, category);
+
+        if (await _unitOfWork.CompleteAsync() > 0)
+            return true;
+        return false;
+    }
+
+    public async Task<bool> DeleteCategoryAsync(int categoryId)
+    {
+        var category = await _unitOfWork.Repository<Category>().GetByIdAsync(categoryId);
+        if (category is null)
+            return false;
+
+        _unitOfWork.Repository<Category>().Remove(category);
+        if (await _unitOfWork.CompleteAsync() > 0)
+            return true;
+        return false;
     }
 }

@@ -5,5 +5,8 @@ global using myshop.DAL.Entities;
 global using myshop.BLL.ViewModels;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
+global using myshop.BLL.ViewModels.Products;
 global using myshop.BLL.DependencyInjection;
+global using myshop.BLL.ViewModels.Categories;
 global using Microsoft.AspNetCore.Mvc.Rendering;
+
