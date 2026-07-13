@@ -6,16 +6,16 @@ public static class DependencyInjection
 {
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddBLL()
+        public IServiceCollection AddBLL(string connectionString)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
 
-            services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfie>());
+            services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>());
 
-            services.AddDAL();
+            services.AddDAL(connectionString);
             return services;
         }
     }

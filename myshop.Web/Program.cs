@@ -1,26 +1,22 @@
 
-using Microsoft.AspNetCore.Identity;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+//    builder.Configuration.GetConnectionString("DefaultConnection")
+//    ));
+
+string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Connection string is missing");
+
+builder.Services.AddBLL(connectionString);
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
-    builder.Configuration.GetConnectionString("DefaultConnection")
-    ));
-
-//builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
-//    options => options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4)
-//    ).AddDefaultTokenProviders().AddDefaultUI()
-//    .AddEntityFrameworkStores<ApplicationDbContext>();
-
-
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
-
-builder.Services.AddBLL();
 
 
 var app = builder.Build();

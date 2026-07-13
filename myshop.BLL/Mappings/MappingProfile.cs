@@ -3,9 +3,9 @@
 
 namespace myshop.BLL.Mappings;
 
-public class MappingProfie : Profile
+public class MappingProfile : Profile
 {
-    public MappingProfie()
+    public MappingProfile()
     {
         CreateMap<Category, CategoryDto>().ReverseMap();
         CreateMap<Category, CategoryVM>().ReverseMap();
