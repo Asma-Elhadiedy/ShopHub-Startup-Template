@@ -13,7 +13,8 @@ public class ProductController(IProductService _productService, IWebHostEnvironm
         return Json(new { data = products });
     }
 
-    [HttpGet]
+
+
     public async Task<IActionResult> Create()
     {
         var model = await _productService.PrepareProductModelAsync(0);
@@ -21,34 +22,24 @@ public class ProductController(IProductService _productService, IWebHostEnvironm
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(ProductVM productVM, IFormFile file)
+    public async Task<IActionResult> Create(ProductVM model)
     {
         if (ModelState.IsValid)
         {
-            string RootPath = _webHostEnvironment.WebRootPath;
-            if (file != null)
-            {
-                string filename = Guid.NewGuid().ToString();
-                var Upload = Path.Combine(RootPath, @"Images\Products");
-                var ext = Path.GetExtension(file.FileName);
+            var isCreated = await _productService.CreateProductAsync(model);
 
-                using (var filestream = new FileStream(Path.Combine(Upload, filename + ext), FileMode.Create))
-                {
-                    file.CopyTo(filestream);
-                }
-                productVM.Product.Img = @"Images\Products\" + filename + ext;
-            }
+            TempData["Create"] = isCreated
+                ? "Item has Created Successfully"
+                : "Item has not Created Successfully";
 
-            var isCreated = await _productService.CreateProductAsync(productVM);
-            TempData["Create"] = "Item has Created Successfully";
             return RedirectToAction("Index");
         }
-        return View(productVM.Product);
+        return View(model);
     }
 
 
 
-    [HttpGet]
+
     public async Task<IActionResult> Edit(int? id)
     {
         if (id == null || id == 0)
@@ -61,52 +52,50 @@ public class ProductController(IProductService _productService, IWebHostEnvironm
     }
 
     [HttpPost]
-    public async Task<IActionResult> Edit(ProductVM productVM, IFormFile? file)
+    public async Task<IActionResult> Edit(ProductVM model)
     {
+        ModelState.Remove(nameof(model.File));
         if (ModelState.IsValid)
         {
-            string RootPath = _webHostEnvironment.WebRootPath;
+            var isUpdated = await _productService.UpdateProductAsync(model);
 
-            if (file != null)
-            {
-                string filename = Guid.NewGuid().ToString();
-                var Upload = Path.Combine(RootPath, @"Images\Products");
-                var ext = Path.GetExtension(file.FileName);
+            TempData["Update"] = isUpdated
+                ? "Data has Updated Successfully"
+                : "Data has not Updated Successfully";
 
-                if (productVM.Product.Img != null)
-                {
-                    var oldimg = Path.Combine(RootPath, productVM.Product.Img.TrimStart('\\'));
-
-                    if (System.IO.File.Exists(oldimg))
-                    {
-                        System.IO.File.Delete(oldimg);
-                    }
-                }
-
-                using (var filestream = new FileStream(Path.Combine(Upload, filename + ext), FileMode.Create))
-                {
-                    file.CopyTo(filestream);
-                }
-
-                productVM.Product.Img = @"Images\Products\" + filename + ext;
-            }
-
-            var isUpdated = await _productService.UpdateProductAsync(productVM);
-
-            TempData["Update"] = "Data has Updated Successfully";
             return RedirectToAction("Index");
         }
 
-        return View(productVM.Product);
+        return View(model);
     }
 
-    [HttpDelete]
+
+
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if (id == null || id == 0)
+        {
+            return NotFound();
+        }
+
+        var model = await _productService.PrepareProductModelAsync(id!.Value);
+        return View(model);
+    }
+
+    
+    [HttpPost]
     public async Task<IActionResult> Delete(int id)
     {
         var isDeleted = await _productService.DeleteProductAsync(id);
-        if (isDeleted)
-            return Json(new { success = true, message = "file has been Deleted" });
-        return Json(new { success = false, message = "Error while Deleting" });
+        TempData["Delete"] = isDeleted 
+            ? "file has been Deleted" 
+            : "Error while Deleting";
+
+        return RedirectToAction("Index");
+
+        //return Json(new { success = true, message = "file has been Deleted" });
+        //return Json(new { success = false, message = "Error while Deleting" });
+
     }
 
 

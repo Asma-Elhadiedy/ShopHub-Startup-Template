@@ -24,10 +24,10 @@ public class CategoryController(ICategoryService _categoryService) : Controller
         {
             var isCreated = await _categoryService.CreateCategoryAsync(model);
 
-            if (isCreated)
-                TempData["Create"] = "Item has Created Successfully";
-            else
-                TempData["Create"] = "Data has not Updated Successfully";
+
+            TempData["Create"] = isCreated
+                ? "Item has Created Successfully"
+                : "Item has not Created Successfully";
 
             return RedirectToAction("Index");
         }
@@ -55,10 +55,9 @@ public class CategoryController(ICategoryService _categoryService) : Controller
         {
             var isUpdated = await _categoryService.UpdateCategoryAsync(model);
 
-            if (isUpdated)
-                TempData["Update"] = "Data has Updated Successfully";
-            else
-                TempData["Update"] = "Data has not Updated Successfully";
+            TempData["Update"] = isUpdated
+                ? "Data has Updated Successfully"
+                : "Data has not Updated Successfully";
 
             return RedirectToAction("Index");
         }
@@ -80,15 +79,14 @@ public class CategoryController(ICategoryService _categoryService) : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> DeleteCategory(int? id)
+    public async Task<IActionResult> Delete(int id)
     {
-        var isDeleted = await _categoryService.DeleteCategoryAsync(id!.Value);
+        var isDeleted = await _categoryService.DeleteCategoryAsync(id);
 
-        if (isDeleted)
-            TempData["Delete"] = "Item has Deleted Successfully";
-        else
-            TempData["Delete"] = "Item has not Deleted Successfully";
-        
+        TempData["Delete"] = isDeleted
+            ? "Item has Deleted Successfully"
+            : "Item has not Deleted Successfully";
+
         return RedirectToAction("Index");
     }
 }

@@ -1,33 +1,35 @@
-﻿$(document).ready(function () {
+﻿$(function () {
 
-    $("#mytable").DataTable({
-        ajax: {
-            url: "/Product/GetData",
-            type: "GET",
-            dataSrc: "data"
-        },
-        columns: [
-            { data: "name" },
-            { data: "description" },
-            { data: "price" },
-            { data: "categoryName" },
-            {
-                data: "id",
-                render: function (id) {
-                    return `
-                        <a href="/Product/Edit/${id}" class="btn btn-success btn-sm">
+    dataTable = initializeDataTable("mytable", datatableOptions);
+});
+
+const datatableOptions = {
+    ajax: {
+        url: `${appBasePath}/Product/GetData`,
+        type: "GET",
+        dataSrc: "data"
+    },
+    columns: [
+        { data: "name" },
+        { data: "description" },
+        { data: "price" },
+        { data: "categoryName" },
+        {
+            data: "id",
+            render: function (data) {
+                return `
+                        <a href="${appBasePath}/Product/Edit/${data}" class="btn btn-success btn-sm">
                             <i class="fa-solid fa-pen"></i> Edit
                         </a>
 
-                        <button class="btn btn-danger btn-sm">
+                        <a href="${appBasePath}/Product/Delete/${data}" class="btn btn-danger btn-sm">
                             <i class="fa-solid fa-trash"></i> Delete
-                        </button>
+                        </a>
                     `;
-                }
             }
-        ],
-        autoWidth: false,
-        scrollX: true
-    });
+        }
+    ],
+    autoWidth: false,
+    scrollX: true
+};
 
-});

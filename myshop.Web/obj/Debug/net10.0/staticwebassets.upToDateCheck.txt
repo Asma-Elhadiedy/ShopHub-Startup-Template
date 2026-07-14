@@ -185,13 +185,16 @@ wwwroot\Images\Products\ac682fc5-fad4-485e-a800-a2a2893fa8ab.jpg
 wwwroot\Images\Products\bf36fcdf-954c-4602-8623-6711534e873e.jpg
 wwwroot\Images\Products\c1db582a-79c3-40ca-bdf6-f939bdd40e5a.jpg
 wwwroot\Images\Products\c42a18f3-79d6-44c9-9047-438d295dbacd.webp
+wwwroot\Images\Products\cb27e5e6-6c80-44e1-b860-28b51e6d268f.jpg
 wwwroot\Images\Products\cc5daf8c-d71b-4a7b-b212-f923aa0274a9.jpg
 wwwroot\Images\Products\d5033c93-add3-40bc-85f5-020363626720.jpg
 wwwroot\Images\Products\e173795f-7b9e-480f-9a1b-8b0e88d5d010.jpg
 wwwroot\Images\Products\e1b82bb1-13bc-40fe-a3a0-8dc18e0425ab.jpg
 wwwroot\Images\Products\e6c4961b-1c83-4da0-bf6d-f6c4901fb9b9.jpeg
+wwwroot\Images\Products\e950c97f-ce7c-4768-a884-491e4a334c8f.jpg
 wwwroot\Images\Products\eb1e8683-8559-4957-92c0-773fd02e4c7c.jpg
 wwwroot\Images\Products\ef491e09-7bef-4e18-af5c-71441104b8eb.jpg
+wwwroot\Images\Products\f326fe27-9daa-45bc-a338-d85b985c7e6d.jpg
 wwwroot\css\adminlte.css
 wwwroot\css\adminlte.css.map
 wwwroot\css\adminlte.min.css

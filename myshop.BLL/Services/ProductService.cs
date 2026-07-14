@@ -1,10 +1,7 @@
 ﻿
-
-using Microsoft.Extensions.Hosting;
-
 namespace myshop.BLL.Services;
 
-public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IHostEnvironment _webHostEnvironment) : IProductService
+public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IFileService _fileService) : IProductService
 {
     public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
     {
@@ -22,16 +19,24 @@ public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IHostEnvir
 
     public async Task<ProductVM?> PrepareProductModelAsync(int productId)
     {
-        var category = await _unitOfWork.Repository<Product>().GetByIdAsync(productId);
-        return category is not null
-            ? _mapper.Map<ProductVM>(category)
-            : null;
+        var product = await _unitOfWork.Repository<Product>().GetByIdAsync(productId);
+
+        var productVM = new ProductVM { CategoryList = await GetCategoriesSelectListAsync() };
+
+        return product is not null
+            ? _mapper.Map(product, productVM)
+            : productVM;
     }
 
     public async Task<bool> CreateProductAsync(ProductVM model)
     {
-        var category = _mapper.Map<Category>(model);
-        _unitOfWork.Repository<Category>().Add(category);
+        var product = _mapper.Map<Product>(model);
+        _unitOfWork.Repository<Product>().Add(product);
+
+        if (model.File != null)
+        {
+            product.Img = await _fileService.SaveFileAsync(model.File, PathConsts.ProductImagesPath);
+        }
 
         if (await _unitOfWork.CompleteAsync() > 0)
             return true;
@@ -40,8 +45,17 @@ public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IHostEnvir
 
     public async Task<bool> UpdateProductAsync(ProductVM model)
     {
-        var category = await _unitOfWork.Repository<Category>().GetByIdAsync(model.Product.Id);
-        category = _mapper.Map(model, category);
+        var product = await _unitOfWork.Repository<Product>().GetByIdAsync(model.Id);
+        product = _mapper.Map(model, product);
+
+
+        if (model.File != null)
+        {
+            var oldimg = Path.Combine(product.Img);
+            await _fileService.DeleteFileAsync(oldimg);
+
+            product.Img = await _fileService.SaveFileAsync(model.File, PathConsts.ProductImagesPath);
+        }
 
         if (await _unitOfWork.CompleteAsync() > 0)
             return true;
@@ -55,14 +69,23 @@ public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IHostEnvir
             return false;
 
 
-        var oldimg = Path.Combine(_webHostEnvironment.ContentRootPath, product.Img.TrimStart('\\'));
-        if (File.Exists(oldimg))
-            File.Delete(oldimg);
+        var oldimg = Path.Combine(product.Img);
+        await _fileService.DeleteFileAsync(oldimg);
 
 
         _unitOfWork.Repository<Product>().Remove(product);
         if (await _unitOfWork.CompleteAsync() > 0)
             return true;
         return false;
+    }
+
+    private async Task<IEnumerable<SelectListItem>> GetCategoriesSelectListAsync()
+    {
+        return await _unitOfWork.Repository<Category>().GetQueryable(null)
+            .Select(c => new SelectListItem()
+            {
+                Text = c.Name,
+                Value = c.Id.ToString()
+            }).ToListAsync();
     }
 }

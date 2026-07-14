@@ -1,6 +1,4 @@
-﻿
-
-namespace myshop.BLL.Services;
+﻿namespace myshop.BLL.Services;
 
 public interface IProductService
 {

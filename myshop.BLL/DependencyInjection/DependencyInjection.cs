@@ -9,6 +9,7 @@ public static class DependencyInjection
         public IServiceCollection AddBLL(string connectionString)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IFileService, FileService>();
 
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
