@@ -1,4 +1,5 @@
-﻿namespace myshop.BLL.UOF;
+﻿
+namespace myshop.BLL.UOF;
 
 public interface IUnitOfWork : IDisposable
 {

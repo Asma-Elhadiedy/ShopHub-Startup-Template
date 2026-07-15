@@ -19,7 +19,7 @@ public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IFileServi
 
     public async Task<ProductVM?> PrepareProductModelAsync(int productId)
     {
-        var product = await _unitOfWork.Repository<Product>().GetByIdAsync(productId);
+        var product = productId == 0 ? null : await _unitOfWork.Repository<Product>().GetByIdAsync(productId);
 
         var productVM = new ProductVM { CategoryList = await GetCategoriesSelectListAsync() };
 

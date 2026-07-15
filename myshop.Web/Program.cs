@@ -18,6 +18,13 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
 
+builder.Services.AddMiniProfiler(options =>
+{
+    options.RouteBasePath = "/profiler";
+    options.PopupRenderPosition = StackExchange.Profiling.RenderPosition.BottomLeft;
+    options.PopupShowTimeWithChildren = true;
+}).AddEntityFramework();
+
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
@@ -27,15 +34,17 @@ using (var scope = app.Services.CreateScope())
 }
 
 
-
-
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseMiniProfiler();
 }
 
 app.UseHttpsRedirection();
@@ -51,9 +60,9 @@ app.UseAuthorization();
 app.UseSession();
 
 app.MapRazorPages();
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Product}/{action=Index}/{id?}");

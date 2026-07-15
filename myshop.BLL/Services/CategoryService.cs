@@ -20,7 +20,7 @@ public class CategoryService(IUnitOfWork _unitOfWork, IMapper _mapper) : ICatego
         var category = await _unitOfWork.Repository<Category>().GetByIdAsync(categoryId);
         return category is not null
             ? _mapper.Map<CategoryVM>(category)
-            : null;
+            : new();
     }
 
     public async Task<bool> CreateCategoryAsync(CategoryVM model)
@@ -38,7 +38,7 @@ public class CategoryService(IUnitOfWork _unitOfWork, IMapper _mapper) : ICatego
         var category = await _unitOfWork.Repository<Category>().GetByIdAsync(model.Id);
         if (category is null)
             return false;
-        
+
         //category = _mapper.Map(model, category);
         category.Name = model.Name;
         category.Description = model.Description;

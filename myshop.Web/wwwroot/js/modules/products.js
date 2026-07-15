@@ -1,5 +1,5 @@
-﻿$(function () {
-
+﻿
+$(function () {
     dataTable = initializeDataTable("mytable", datatableOptions);
 });
 
