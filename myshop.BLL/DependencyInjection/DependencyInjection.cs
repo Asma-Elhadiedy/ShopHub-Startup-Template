@@ -8,11 +8,12 @@ public static class DependencyInjection
     {
         public IServiceCollection AddBLL(string connectionString)
         {
+            services.AddScoped<ISeedData, SeedData>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IFileService, FileService>();
 
-            services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
 
             services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>());
 

@@ -9,7 +9,7 @@ public class FileService(IHostEnvironment _hostEnvironment) : IFileService
 
     public async Task<string> SaveFileAsync(IFormFile file, string folder)
     {
-        var uploadPath = Path.Combine(_hostEnvironment.ContentRootPath, PathConsts.WWWRootPath, folder);
+        var uploadPath = Path.Combine(_hostEnvironment.ContentRootPath, ConstPath.WWWRootPath, folder);
 
         var ext = Path.GetExtension(file.FileName);
         var fileName = $"{Guid.NewGuid()}{ext}";
@@ -25,7 +25,7 @@ public class FileService(IHostEnvironment _hostEnvironment) : IFileService
 
     public async Task<bool> DeleteFileAsync(string filePath)
     {
-        var fullPath = Path.Combine(_hostEnvironment.ContentRootPath, PathConsts.WWWRootPath, filePath);
+        var fullPath = Path.Combine(_hostEnvironment.ContentRootPath, ConstPath.WWWRootPath, filePath);
         if (!File.Exists(fullPath))
             return false;
 

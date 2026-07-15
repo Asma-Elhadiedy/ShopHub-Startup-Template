@@ -35,7 +35,7 @@ public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IFileServi
 
         if (model.File != null)
         {
-            product.Img = await _fileService.SaveFileAsync(model.File, PathConsts.ProductImagesPath);
+            product.Img = await _fileService.SaveFileAsync(model.File, ConstPath.ProductImagesPath);
         }
 
         if (await _unitOfWork.CompleteAsync() > 0)
@@ -54,7 +54,7 @@ public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IFileServi
             var oldimg = Path.Combine(product.Img);
             await _fileService.DeleteFileAsync(oldimg);
 
-            product.Img = await _fileService.SaveFileAsync(model.File, PathConsts.ProductImagesPath);
+            product.Img = await _fileService.SaveFileAsync(model.File, ConstPath.ProductImagesPath);
         }
 
         if (await _unitOfWork.CompleteAsync() > 0)

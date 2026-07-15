@@ -8,6 +8,13 @@ public class ApplicationDbContext : IdentityDbContext
     {
     }
 
+    //protected override void OnModelCreating(ModelBuilder builder)
+    //{
+    //    base.OnModelCreating(builder);
+
+    //    builder.ApplyConfigurationsFromAssembly(typeof(IDALMarker).Assembly);
+    //}
+
     public DbSet<Category> Categories { get; set; }
     public DbSet<Product> Products { get; set; }
 
