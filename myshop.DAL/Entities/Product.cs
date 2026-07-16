@@ -1,7 +1,7 @@
 ﻿
 namespace myshop.DAL.Entities;
 
-public class Product
+public class Product : IDomainModelMarker
 {
     public int Id { get; set; }
 

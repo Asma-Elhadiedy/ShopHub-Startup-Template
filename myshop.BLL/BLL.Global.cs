@@ -1,6 +1,6 @@
 ﻿
 global using AutoMapper;
-global using myshop.BLL.UOF;
+global using myshop.BLL.UOW;
 global using myshop.DAL.Data;
 global using myshop.BLL.DTOs;
 global using myshop.DAL.Entities;

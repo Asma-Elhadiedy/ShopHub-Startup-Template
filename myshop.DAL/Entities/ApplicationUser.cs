@@ -2,7 +2,8 @@
 
 namespace myshop.DAL.Entities;
 
-public class ApplicationUser : IdentityUser
+
+public class ApplicationUser : IdentityUser, IDomainModelMarker 
 {
     [Required]
     public string Name { get; set; }

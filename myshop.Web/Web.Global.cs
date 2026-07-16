@@ -7,6 +7,7 @@ global using myshop.BLL.ViewModels;
 global using myshop.BLL.DBInitializer;
 global using Microsoft.AspNetCore.Mvc;
 global using Microsoft.EntityFrameworkCore;
+global using myshop.BLL.ViewModels.Accounts;
 global using myshop.BLL.ViewModels.Products;
 global using myshop.BLL.DependencyInjection;
 global using myshop.Web.DependencyInjection;

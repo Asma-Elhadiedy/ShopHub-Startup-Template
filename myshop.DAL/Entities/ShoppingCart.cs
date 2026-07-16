@@ -1,6 +1,6 @@
 ﻿namespace myshop.DAL.Entities;
 
-public class ShoppingCart
+public class ShoppingCart : IDomainModelMarker
 {
     public int Id { get; set; }
 

@@ -1,9 +1,9 @@
 ﻿
-namespace myshop.BLL.UOF;
+namespace myshop.BLL.UOW;
 
 public interface IUnitOfWork : IDisposable
 {
-    IGenereicRepository<TEntity> Repository<TEntity>() where TEntity : class;
+    IGenericRepository<TEntity> Repository<TEntity>() where TEntity : class, IDomainModelMarker;
     Task<int> CompleteAsync();
 }
 

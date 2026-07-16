@@ -1,6 +1,6 @@
 ﻿namespace myshop.DAL.Repository;
 
-public interface IGenereicRepository<T> where T : class
+public interface IGenericRepository<T> where T : class
 {
     Task<T?> GetByIdAsync(int id);
     Task<T?> GetItemAsync(Expression<Func<T, bool>> predicate);

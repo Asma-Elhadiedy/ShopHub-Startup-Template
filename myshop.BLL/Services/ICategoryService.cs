@@ -1,7 +1,6 @@
 ﻿
 
 namespace myshop.BLL.Services;
-
 public interface ICategoryService
 {
     Task<IEnumerable<CategoryDto>> GetAllCategoriesAsync();

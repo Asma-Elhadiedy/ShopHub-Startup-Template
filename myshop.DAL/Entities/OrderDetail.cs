@@ -1,6 +1,6 @@
 ﻿namespace myshop.DAL.Entities;
 
-public class OrderDetail
+public class OrderDetail : IDomainModelMarker
 {
     public int Id { get; set; }
 

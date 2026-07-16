@@ -1,9 +1,16 @@
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string is missing");
+
+//builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+
+//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddBLL(connectionString);
 
@@ -12,6 +19,13 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
+   options => options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4))
+   .AddDefaultTokenProviders()
+   .AddDefaultUI()
+   .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 builder.Services.AddMiniProfiler(options =>
 {
@@ -56,7 +70,11 @@ app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Product}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Login}");
+
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Product}/{action=Index}/{id?}");
 
 app.Run();
 

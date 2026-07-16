@@ -7,9 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Shared\Components\**" />
     <Compile Remove="wwwroot\NewFolder\**" />
+    <Content Remove="Views\Shared\Components\**" />
     <Content Remove="wwwroot\NewFolder\**" />
+    <EmbeddedResource Remove="Views\Shared\Components\**" />
     <EmbeddedResource Remove="wwwroot\NewFolder\**" />
+    <None Remove="Views\Shared\Components\**" />
     <None Remove="wwwroot\NewFolder\**" />
   </ItemGroup>
 
@@ -99,8 +103,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="10.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="10.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="10.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.10">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.2" />
     <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.5.4" />
     <PackageReference Include="MiniProfiler.EntityFrameworkCore" Version="4.5.4" />
@@ -109,7 +119,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Shared\Components\" />
     <Folder Include="wwwroot\Images\Products\" />
   </ItemGroup>
 

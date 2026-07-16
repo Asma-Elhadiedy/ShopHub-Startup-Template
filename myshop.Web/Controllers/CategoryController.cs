@@ -8,8 +8,8 @@ public class CategoryController(ICategoryService _categoryService) : Controller
 
     public async Task<IActionResult> GetData()
     {
-        var categories = await _categoryService.GetAllCategoriesAsync();
-        return Json(new { data = categories });
+        var data = await _categoryService.GetAllCategoriesAsync();
+        return Json(new { data });
     }
 
 

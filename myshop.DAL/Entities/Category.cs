@@ -1,6 +1,6 @@
 ﻿namespace myshop.DAL.Entities;
 
-public class Category
+public class Category : IDomainModelMarker
 {
     public int Id { get; set; }
 

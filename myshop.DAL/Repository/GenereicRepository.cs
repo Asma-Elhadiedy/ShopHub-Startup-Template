@@ -2,7 +2,7 @@
 
 namespace myshop.DAL.Repository;
 
-public class GenereicRepository<T>(ApplicationDbContext _dbContext) : IGenereicRepository<T> where T : class
+public class GenereicRepository<T>(ApplicationDbContext _dbContext) : IGenericRepository<T> where T : class
 {
 
     public async Task<T?> GetByIdAsync(int id)
