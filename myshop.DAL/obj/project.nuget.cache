@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LF/Qlt2lRNo=",
+  "dgSpecHash": "/4M4ztrToHw=",
   "success": true,
   "projectFilePath": "D:\\Code\\Asma-Elhadiedy\\ShopHub-Startup-Template\\myshop.DAL\\myshop.DAL.csproj",
   "expectedPackageFiles": [
@@ -95,34 +95,9 @@
     "C:\\Users\\LORD\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.4\\system.diagnostics.eventlog.9.0.4.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.7.1\\system.identitymodel.tokens.jwt.7.7.1.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\system.memory.data\\8.0.1\\system.memory.data.8.0.1.nupkg.sha512",
-    "C:\\Users\\LORD\\.nuget\\packages\\system.security.cryptography.pkcs\\9.0.4\\system.security.cryptography.pkcs.9.0.4.nupkg.sha512",
+    "C:\\Users\\LORD\\.nuget\\packages\\system.security.cryptography.pkcs\\10.0.10\\system.security.cryptography.pkcs.10.0.10.nupkg.sha512",
     "C:\\Users\\LORD\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.4\\system.security.cryptography.protecteddata.9.0.4.nupkg.sha512",
-    "C:\\Users\\LORD\\.nuget\\packages\\system.security.cryptography.xml\\8.0.2\\system.security.cryptography.xml.8.0.2.nupkg.sha512"
+    "C:\\Users\\LORD\\.nuget\\packages\\system.security.cryptography.xml\\10.0.10\\system.security.cryptography.xml.10.0.10.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 8.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-37gx-xxp4-5rgx",
-      "projectPath": "D:\\Code\\Asma-Elhadiedy\\ShopHub-Startup-Template\\myshop.DAL\\myshop.DAL.csproj",
-      "warningLevel": 1,
-      "filePath": "D:\\Code\\Asma-Elhadiedy\\ShopHub-Startup-Template\\myshop.DAL\\myshop.DAL.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "message": "Package 'System.Security.Cryptography.Xml' 8.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-w3x6-4m5h-cxqf",
-      "projectPath": "D:\\Code\\Asma-Elhadiedy\\ShopHub-Startup-Template\\myshop.DAL\\myshop.DAL.csproj",
-      "warningLevel": 1,
-      "filePath": "D:\\Code\\Asma-Elhadiedy\\ShopHub-Startup-Template\\myshop.DAL\\myshop.DAL.csproj",
-      "libraryId": "System.Security.Cryptography.Xml",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  "logs": []
 }

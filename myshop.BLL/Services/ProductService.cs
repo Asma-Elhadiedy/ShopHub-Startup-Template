@@ -1,10 +1,21 @@
 ﻿
+//using AutoMapper.QueryableExtensions;
+
 namespace myshop.BLL.Services;
 
 public class ProductService(IUnitOfWork _unitOfWork, IMapper _mapper, IFileService _fileService) : IProductService
 {
     public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
     {
+
+        //return _mapper.Map<IEnumerable<ProductDto>>
+        //    (await _unitOfWork.Repository<Product>().GetAllAsync(null));
+
+        //return await _unitOfWork.Repository<Product>()
+        //.GetQueryable(null)
+        //.ProjectTo<ProductDto>(_mapper.ConfigurationProvider)
+        //.ToListAsync();
+
         return await _unitOfWork.Repository<Product>()
                                 .GetQueryable(null)
                                 .Select(p => new ProductDto()

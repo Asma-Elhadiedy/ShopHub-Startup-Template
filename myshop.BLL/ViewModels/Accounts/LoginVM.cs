@@ -3,10 +3,12 @@ namespace myshop.BLL.ViewModels.Accounts;
 
 public class LoginVM
 {
-    [Required]
+    [Required(ErrorMessage = ConstMessages.RequiredInput)]
     [EmailAddress]
     public string Email { get; set; } = default!;
-    [Required]
+
+
+    [Required(ErrorMessage = ConstMessages.RequiredInput)]
     [DataType(DataType.Password)]
     public string Password { get; set; } = default!;
 

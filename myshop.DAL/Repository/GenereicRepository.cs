@@ -9,14 +9,20 @@ public class GenereicRepository<T>(ApplicationDbContext _dbContext) : IGenericRe
     {
         return await _dbContext.Set<T>().FindAsync(id);
     }
-    public async Task<T?> GetItemAsync(Expression<Func<T, bool>> match)
+    public async Task<T?> GetItemAsync(Expression<Func<T, bool>> predicate)
     {
-        return await _dbContext.Set<T>().FirstOrDefaultAsync(match);
+        return await _dbContext.Set<T>().FirstOrDefaultAsync(predicate);
     }
-
+    public async Task<bool> IsExistAsync(Expression<Func<T, bool>> predicate)
+    {
+        return await _dbContext.Set<T>().AnyAsync(predicate);
+    }
 
     public async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? predicate)
     {
+        //if (typeof(T) == typeof(Product))
+        //    return await _dbContext.Set<T>().Include("Category").ToListAsync();
+
         return predicate is null
             ? await _dbContext.Set<T>().AsNoTracking().ToListAsync()
             : await _dbContext.Set<T>().Where(predicate).AsNoTracking().ToListAsync();

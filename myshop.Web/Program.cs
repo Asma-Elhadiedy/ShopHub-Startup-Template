@@ -36,7 +36,7 @@ builder.Services.AddMiniProfiler(options =>
 
 
 var app = builder.Build();
-await app.InitializeDatabaseAsync();
+//await app.InitializeDatabaseAsync();
 
 
 // Configure the HTTP request pipeline.
@@ -68,13 +68,13 @@ app.MapRazorPages();
 
 
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Account}/{action=Login}");
-
 //app.MapControllerRoute(
 //    name: "default",
-//    pattern: "{controller=Product}/{action=Index}/{id?}");
+//    pattern: "{controller=Account}/{action=Login}");
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Product}/{action=Index}/{id?}");
 
 app.Run();
 

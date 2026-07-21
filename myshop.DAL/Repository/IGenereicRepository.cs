@@ -4,6 +4,7 @@ public interface IGenericRepository<T> where T : class
 {
     Task<T?> GetByIdAsync(int id);
     Task<T?> GetItemAsync(Expression<Func<T, bool>> predicate);
+    Task<bool> IsExistAsync(Expression<Func<T, bool>> predicate);
 
     Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>>? predicate);
     IQueryable<T> GetQueryable(Expression<Func<T, bool>>? predicate);
