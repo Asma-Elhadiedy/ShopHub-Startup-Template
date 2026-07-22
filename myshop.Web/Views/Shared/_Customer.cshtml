@@ -135,7 +135,7 @@
 
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand text-primary" href="/Customer/Home/Index">myShop</a>
+            <a class="navbar-brand text-primary" href="/Home/Index">myShop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -143,7 +143,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link-box home-box nav-link active" href="/Customer/Home/Index">Home</a>
+                        <a class="nav-link-box home-box nav-link active" href="/Home/Index">Home</a>
                     </li>
 
                 @*     @if (User.Identity.IsAuthenticated)
@@ -173,7 +173,7 @@
                     <partial name="_LoginPartial" />
                 </div>
 
-                <a href="/Customer/Cart/Index" class="nav-link-box cart-btn">
+                <a href="/Cart/Index" class="nav-link-box cart-btn">
                     <i class="bi bi-cart-fill"></i>
                     Cart
                     <span id="cart-count" class="badge bg-dark text-white rounded-pill">@cartCount</span>

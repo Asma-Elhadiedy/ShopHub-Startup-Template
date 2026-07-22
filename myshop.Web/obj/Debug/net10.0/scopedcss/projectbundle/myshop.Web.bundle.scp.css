@@ -1,3 +1,114 @@
+/* /Areas/Admin/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Base styles and utilities */
+
+body[b-hjzjx4yiso] {
+    background: linear-gradient(135deg, #eef2f7 0%, #d9e4f5 40%, #c3dafe 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    animation: fadeIn-b-hjzjx4yiso 1s ease-in-out;
+}
+
+@keyframes fadeIn-b-hjzjx4yiso {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Navbar brand and links */
+a.navbar-brand[b-hjzjx4yiso] {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    color: #fff;
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    padding: 0.6rem 1.2rem;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+    a.navbar-brand:hover[b-hjzjx4yiso] {
+        background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    }
+
+a[b-hjzjx4yiso] {
+    color: #0077cc;
+}
+
+.btn-primary[b-hjzjx4yiso] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-hjzjx4yiso], .nav-pills .show > .nav-link[b-hjzjx4yiso] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Borders and shadows */
+.border-top[b-hjzjx4yiso] {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom[b-hjzjx4yiso] {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-hjzjx4yiso] {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+/* Buttons */
+button.accept-policy[b-hjzjx4yiso] {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Footer */
+.footer[b-hjzjx4yiso] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    color: #fff;
+    background: linear-gradient(90deg, #0b0b0b, #1a1a1a);
+    text-align: center;
+}
+
+/* Nav-link boxes for menu items */
+.nav-link-box[b-hjzjx4yiso] {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: #fff !important;
+    padding: 0.6rem 1.2rem;
+    margin-left: 10px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    text-align: center;
+    font-weight: 600;
+}
+
+    .nav-link-box:hover[b-hjzjx4yiso] {
+        background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    }
+
+    .nav-link-box.home-box[b-hjzjx4yiso] {
+        padding: 0.9rem 1.8rem;
+        font-size: 1.1rem;
+    }
 /* /Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Base styles and utilities */
 

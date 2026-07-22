@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Products Management";
+    ViewBag.CardTitle = "View Products";
+    Layout = "~/Areas/Admin/Views/Shared/_Dashboard.cshtml";
+}
+
+<div class="custom-card">
+
+    <div class="custom-card-title">
+        <i class="fa-solid fa-box-open me-2"></i>
+        @ViewBag.CardTitle
+    </div>
+
+    <div class="top-btn">
+        <a asp-area="Admin"
+           asp-controller="Product"
+           asp-action="Create"
+           class="btn btn-primary">
+            <i class="fa-solid fa-circle-plus me-1"></i>
+            Create Product
+        </a>
+    </div>
+
+    <table id="mytable" class="display table-hover" width="100%">
+    </table>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/modules/admin/products.js"></script>
+}

@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Category Management";
+    ViewBag.CardTitle = "View Categories";
+    Layout = "~/Areas/Admin/Views/Shared/_Dashboard.cshtml";
+
+}
+
+
+<div class="custom-card">
+
+    <div class="custom-card-title">
+        <i class="fa-solid fa-box-open me-2"></i>
+        @ViewBag.CardTitle
+    </div>
+
+    <div class="top-btn">
+        <a class="btn btn-primary"
+           asp-area="Admin"
+           asp-controller="Category"
+           asp-action="Create">
+            <i class="fa-solid fa-circle-plus me-1"></i>
+            Create Category
+        </a>
+    </div>
+
+    <table id="mytable" class="display table-hover" width="100%">
+    </table>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/modules/admin/categories.js"></script>
+}

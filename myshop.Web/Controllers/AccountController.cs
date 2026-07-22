@@ -2,7 +2,7 @@
 namespace myshop.Web.Controllers;
 
 public class AccountController(IAccountService _accountService) : Controller
-{ 
+{
 
     public async Task<IActionResult> Register()
         => View();
@@ -30,13 +30,20 @@ public class AccountController(IAccountService _accountService) : Controller
 
         var isSuccess = await _accountService.SignInAsync(model);
         if (isSuccess)
-            return RedirectToAction("Index", "Category");
+            return RedirectToRoleBasedHome();
         return View(model);
     }
 
+    private IActionResult RedirectToRoleBasedHome()
+    {
+        if (User.IsInRole(ConstRoles.Admin))
+            return RedirectToAction("Category", "Admin" );
+
+        return RedirectToAction("Index", "Home");
+    }
     public async Task<IActionResult> Logout()
     {
-        await _accountService.SignOutAsync();  
+        await _accountService.SignOutAsync();
         return RedirectToAction("Login");
     }
 

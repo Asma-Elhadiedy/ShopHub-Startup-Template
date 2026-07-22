@@ -11,4 +11,5 @@ public class ApplicationUser : IdentityUser, IDomainModelMarker
     public bool IsLocked { get; set; }
 
     public string? ImagePath { get; set; }
+
 }

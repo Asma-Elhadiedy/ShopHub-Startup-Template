@@ -1,0 +1,5 @@
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\dashboard.js
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\categories.js
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\orders.js
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\products.js
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\users.js

@@ -11,10 +11,22 @@ const datatableOptions = {
         dataSrc: "data"
     },
     columns: [
-        { title: "Full Name", data: "fullName" },
-        { title: "Email", data: "email" },
-        { title: "Role", data: "roleName" },
-        { title: "Lock Status", data: "isLocked" },
+        {
+            title: "Full Name",
+            data: "fullName"
+        },
+        {
+            title: "Email",
+            data: "email"
+        },
+        {
+            title: "Role",
+            data: "roleName"
+        },
+        {
+            title: "Lock Status",
+            data: "isLocked"
+        },
         {
             title: "Actions",
             data: "id",

@@ -11,10 +11,23 @@ const datatableOptions = {
         dataSrc: "data"
     },
     columns: [
-        { title: "Name", data: "name" },
-        { title: "Description", data: "description" },
-        { title: "Price", data: "price" },
-        { title: "Category", data: "categoryName" },
+        {
+            title:
+                "Name",
+            data: "name"
+        },
+        {
+            title: "Description",
+            data: "description"
+        },
+        {
+            title: "Price",
+            data: "price"
+        },
+        {
+            title: "Category",
+            data: "categoryName"
+        },
         {
             title: "Actions",
             data: "id",

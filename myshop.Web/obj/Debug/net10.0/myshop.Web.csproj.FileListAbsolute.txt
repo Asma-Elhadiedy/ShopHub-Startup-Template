@@ -630,8 +630,6 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\com
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\pbz77gqib8-{0}-y16e33t52y-y16e33t52y.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\slnn6husiv-{0}-58ck32bvlf-58ck32bvlf.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\ti3e0vt07a-{0}-sh6gev0ygh-sh6gev0ygh.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\41c07d25fd-{0}-gtk7d676c5-gtk7d676c5.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\m6qcs1h25w-{0}-gtk7d676c5-gtk7d676c5.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\staticwebassets.build.json
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\staticwebassets.build.json.cache
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\staticwebassets.development.json
@@ -701,10 +699,13 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\bin\Debug\net10.0\zh-
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kzzib16b79-{0}-6jivjrnpps-6jivjrnpps.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\elpbhwgrxz-{0}-x0mtx42rvy-x0mtx42rvy.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\l2dtgoh887-{0}-txd38ya4fe-txd38ya4fe.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\jg7t9020gh-{0}-y7l50jprth-y7l50jprth.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\dp4fqzqbip-{0}-87kvqhbhuu-87kvqhbhuu.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\x0o6n7i0f9-{0}-7p3xkar92z-7p3xkar92z.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\vppsbzsucd-{0}-ctx4rxyaai-ctx4rxyaai.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\upv5xqz1cn-{0}-s6wdxdzeep-s6wdxdzeep.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\xw7pgg81ar-{0}-da6g6u7okj-da6g6u7okj.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\scopedcss\Areas\Admin\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\41c07d25fd-{0}-fd4x09fwkg-fd4x09fwkg.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\m6qcs1h25w-{0}-fd4x09fwkg-fd4x09fwkg.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\8aksezoytu-{0}-wz7gkvhope-wz7gkvhope.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\qltzptun7c-{0}-y7l50jprth-y7l50jprth.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\w3aoysoj0r-{0}-wmok3385rm-wmok3385rm.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\7i0bk8e0xk-{0}-fl26qat6nl-fl26qat6nl.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kqwmca3skd-{0}-fe3d839qpn-fe3d839qpn.gz

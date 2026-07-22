@@ -1,7 +1,8 @@
 ﻿
 
-global using myshop.BLL.Services;
 global using myshop.DAL.Entities;
+global using myshop.BLL.IServices;
+global using myshop.DAL.Constants;
 global using myshop.BLL.Extensions;
 global using myshop.BLL.ViewModels;
 global using myshop.BLL.DBInitializer;
@@ -15,5 +16,6 @@ global using myshop.DAL.DependencyInjection;
 global using myshop.Web.DependencyInjection;
 global using myshop.BLL.ViewModels.Categories;
 global using Microsoft.AspNetCore.Authorization;
+global using Microsoft.AspNetCore.Authentication;
 
 

@@ -7,12 +7,8 @@ public class CategoryService(IUnitOfWork _unitOfWork, IMapper _mapper) : ICatego
     {
         return await _unitOfWork.Repository<Category>()
                                 .GetQueryable(null)
-                                .Select(p => new CategoryDto()
-                                {
-                                    Id = p.Id,
-                                    Name = p.Name,
-                                    Description = p.Description
-                                }).ToListAsync();
+                                .ProjectTo<CategoryDto>(_mapper.ConfigurationProvider)
+                                .ToListAsync();
     }
 
     public async Task<CategoryVM?> PrepareCategoryModelAsync(int categoryId)
