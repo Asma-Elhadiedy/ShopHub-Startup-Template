@@ -1,5 +1,6 @@
 ﻿
 $(function () {
+    $("#js-productsSidebar").addClass("menu-open");
     dataTable = initializeDataTable("mytable", datatableOptions);
 });
 
@@ -10,11 +11,12 @@ const datatableOptions = {
         dataSrc: "data"
     },
     columns: [
-        { data: "name" },
-        { data: "description" },
-        { data: "price" },
-        { data: "categoryName" },
+        { title: "Name", data: "name" },
+        { title: "Description", data: "description" },
+        { title: "Price", data: "price" },
+        { title: "Category", data: "categoryName" },
         {
+            title: "Actions",
             data: "id",
             render: function (data) {
                 return `

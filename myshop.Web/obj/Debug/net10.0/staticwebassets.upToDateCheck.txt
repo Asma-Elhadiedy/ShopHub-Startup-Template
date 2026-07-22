@@ -51,6 +51,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\adminlte.js.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\bootstrap\js\bootstrap.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\layout.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.light.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
@@ -81,6 +82,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\fonta
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\jquery-ui\jquery-ui.min.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\dashboard.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\fontawesome-free\webfonts\fa-brands-400.svg
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\favicon.ico
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\fontawesome-free\css\solid.css
@@ -143,6 +145,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\fonta
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.components.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.light.min.css.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\users.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\bootstrap\js\bootstrap.bundle.js.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\sweetalert2\sweetalert2.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\site.css
@@ -186,6 +189,7 @@ wwwroot\Images\Products\ac682fc5-fad4-485e-a800-a2a2893fa8ab.jpg
 wwwroot\Images\Products\bf36fcdf-954c-4602-8623-6711534e873e.jpg
 wwwroot\Images\Products\c1db582a-79c3-40ca-bdf6-f939bdd40e5a.jpg
 wwwroot\Images\Products\c42a18f3-79d6-44c9-9047-438d295dbacd.webp
+wwwroot\Images\Products\c4fa3849-5955-48a9-9098-368185faa20f.webp
 wwwroot\Images\Products\cb27e5e6-6c80-44e1-b860-28b51e6d268f.jpg
 wwwroot\Images\Products\cc5daf8c-d71b-4a7b-b212-f923aa0274a9.jpg
 wwwroot\Images\Products\d5033c93-add3-40bc-85f5-020363626720.jpg
@@ -224,6 +228,7 @@ wwwroot\css\alt\adminlte.plugins.css.map
 wwwroot\css\alt\adminlte.plugins.min.css
 wwwroot\css\alt\adminlte.plugins.min.css.map
 wwwroot\css\dashboard.css
+wwwroot\css\layout.css
 wwwroot\css\site.css
 wwwroot\css\summary.css
 wwwroot\customer\assets\favicon.ico
@@ -272,7 +277,9 @@ wwwroot\js\adminlte.min.js
 wwwroot\js\adminlte.min.js.map
 wwwroot\js\demo.js
 wwwroot\js\modules\categories.js
+wwwroot\js\modules\dashboard.js
 wwwroot\js\modules\products.js
+wwwroot\js\modules\users.js
 wwwroot\js\order.js
 wwwroot\js\pages\dashboard.js
 wwwroot\js\pages\dashboard2.js

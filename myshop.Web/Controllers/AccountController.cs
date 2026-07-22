@@ -28,7 +28,6 @@ public class AccountController(IAccountService _accountService) : Controller
         return View(isSuccess);
     }
 
-    [HttpPost]
     public async Task<IActionResult> Logout()
     {
         await _accountService.SignOutAsync();  

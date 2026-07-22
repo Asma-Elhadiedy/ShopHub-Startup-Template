@@ -1,4 +1,5 @@
-﻿namespace myshop.DAL.Entities;
+﻿
+namespace myshop.DAL.Entities;
 
 public class ShoppingCart : IDomainModelMarker
 {

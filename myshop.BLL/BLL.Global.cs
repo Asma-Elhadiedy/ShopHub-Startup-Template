@@ -15,6 +15,7 @@ global using Microsoft.AspNetCore.Identity;
 global using Microsoft.EntityFrameworkCore;
 global using System.Collections.Concurrent;
 global using myshop.BLL.ViewModels.Accounts;
+global using AutoMapper.QueryableExtensions;
 global using myshop.DAL.DependencyInjection;
 global using myshop.BLL.ViewModels.Products;
 global using myshop.BLL.ViewModels.Categories;

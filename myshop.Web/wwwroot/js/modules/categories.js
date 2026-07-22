@@ -1,5 +1,6 @@
 ﻿
 $(function () {
+    $("#js-categoriesSidebar").addClass("menu-open");
 
     dataTable = initializeDataTable("mytable", datatableOptions);
 
