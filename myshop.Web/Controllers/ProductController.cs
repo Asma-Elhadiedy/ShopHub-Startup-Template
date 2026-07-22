@@ -1,6 +1,7 @@
 ﻿
 namespace myshop.Web.Controllers;
 
+[Authorize]
 public class ProductController(IProductService _productService, IWebHostEnvironment _webHostEnvironment) : Controller
 {
     public IActionResult Index()

@@ -10,10 +10,13 @@ public class AccountController(IAccountService _accountService) : Controller
     [HttpPost]
     public async Task<IActionResult> Register(RegisterVM model)
     {
+        if (!ModelState.IsValid)
+            return View(model);
+
         var isSuccess = await _accountService.RegisterUserAsync(model);
         if (isSuccess)
-            return RedirectToAction("Index", "Home");
-        return View();
+            return RedirectToAction(nameof(Login));
+        return View(model);
     }
 
     public async Task<IActionResult> Login()
@@ -22,10 +25,13 @@ public class AccountController(IAccountService _accountService) : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginVM model)
     {
+        if (!ModelState.IsValid)
+            return View(model);
+
         var isSuccess = await _accountService.SignInAsync(model);
         if (isSuccess)
             return RedirectToAction("Index", "Category");
-        return View(isSuccess);
+        return View(model);
     }
 
     public async Task<IActionResult> Logout()

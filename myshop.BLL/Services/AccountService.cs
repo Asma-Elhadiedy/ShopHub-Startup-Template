@@ -5,6 +5,7 @@ namespace myshop.BLL.Services;
 public class AccountService(ILogger<AccountService> _logger,
     IUnitOfWork _unitOfWork,
     IMapper _mapper,
+    IFileService _fileService,
     IHttpContextAccessor _httpContextAccessor,
     SignInManager<ApplicationUser> _signInManager,
     UserManager<ApplicationUser> _userManager) : IAccountService
@@ -21,9 +22,13 @@ public class AccountService(ILogger<AccountService> _logger,
         }
 
         var user = _mapper.Map<ApplicationUser>(model);
+
         var identityResult = await _userManager.CreateAsync(user, model.Password);
         if (!identityResult.Succeeded)
             return false;
+
+        user.ImagePath = await _fileService.SaveFileAsync(model.Image, ConstPath.UserImagesPath);
+        await _userManager.UpdateAsync(user);
 
         var roleAssignmentResult = await _userManager.AddToRoleAsync(user, ConstRoles.Customer);
         if (roleAssignmentResult.Succeeded)

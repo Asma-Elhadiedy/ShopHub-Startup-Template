@@ -1,2 +1,110 @@
-﻿
+﻿@model RegisterVM
 
+@{
+    Layout = "";
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - My Shop</title>
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/myshop.Web.styles.css" asp-append-version="true" />
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <main class="container flex-grow-1 py-4">
+
+        <h1>@ViewData["Title"]</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <section>
+
+                    <form asp-action="Register" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label">
+                                <i class="fa-solid fa-tag me-1"></i> User Name
+                            </label>
+                            <input asp-for="FullName" class="form-control" placeholder="Enter user name..." />
+                            <span asp-validation-for="FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">
+                                <i class="fa-solid fa-align-left me-1"></i> Email
+                            </label>
+                            <input asp-for="Email" class="form-control" placeholder="Enter email..." />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">
+                                <i class="fa-solid fa-user-secret me-1"></i> Password
+                            </label>
+                            <input asp-for="Password" class="form-control" placeholder="Enter password..." />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label">
+                                <i class="fa-solid fa-user-secret me-1"></i> Confirm Password
+                            </label>
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm password..." />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Image" class="form-label">
+                                <i class="fa-solid fa-image me-1"></i> User Image
+                            </label>
+                            <input type="file" name="Image" id="imgfile" class="form-control" onchange="fillimg(event);" />
+                            <span asp-validation-for="Image" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Login" class="btn btn-outline-secondary">
+                                <i class="fa-solid fa-arrow-left me-1"></i> Back
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-circle-plus me-1"></i> Create User
+                            </button>
+                        </div>
+                    </form>
+                </section>
+                <div class="mt-4 text-center">
+                    <img id="ImagePreview" />
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="mt-auto">
+        <div class="container text-center">
+            &copy; @DateTime.Now.Year - MyShop.Web
+        </div>
+    </footer>
+
+    <partial name="_Scripts" />
+    <partial name="_ValidationScriptsPartial" />
+
+
+    <script>
+            var fillimg = function(event) {
+                var imgholder = document.getElementById("ImagePreview");
+                imgholder.src = URL.createObjectURL(event.target.files[0]);
+            }
+    </script>
+</body>
+</html>

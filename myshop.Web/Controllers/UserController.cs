@@ -1,6 +1,7 @@
 ﻿
 namespace myshop.Web.Controllers;
 
+[Authorize]
 public class UserController(IUserService _userService) : Controller
 {
 
@@ -28,7 +29,7 @@ public class UserController(IUserService _userService) : Controller
         var isSuccess = await _userService.CreateUserAsync(model);
         if (isSuccess)
             return RedirectToAction("Index");
-        return View();
+        return View(model);
     }
 
 }

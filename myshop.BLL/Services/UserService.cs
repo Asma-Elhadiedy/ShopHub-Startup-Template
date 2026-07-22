@@ -2,13 +2,14 @@
 
 namespace myshop.BLL.Services;
 
+
 public class UserService(ILogger<UserService> _logger,
     IUnitOfWork _unitOfWork,
     IMapper _mapper,
     IFileService _fileService,
     UserManager<ApplicationUser> _userManager) : IUserService
 {
-    public async Task<IEnumerable<UserDto>> GetAllUsersAsync()
+    public async Task<IEnumerable<UserDto>> GetAllUsersAsync()  
     {
         return await _unitOfWork.Repository<ApplicationUser>()
             .GetQueryable(null)

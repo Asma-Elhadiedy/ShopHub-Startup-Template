@@ -1,6 +1,7 @@
 ﻿
 namespace myshop.Web.Controllers;
 
+[Authorize]
 public class CategoryController(ICategoryService _categoryService) : Controller
 {
     public async Task<IActionResult> Index()

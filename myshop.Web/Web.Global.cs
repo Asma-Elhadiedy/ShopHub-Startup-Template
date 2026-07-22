@@ -14,5 +14,6 @@ global using myshop.BLL.DependencyInjection;
 global using myshop.DAL.DependencyInjection;
 global using myshop.Web.DependencyInjection;
 global using myshop.BLL.ViewModels.Categories;
+global using Microsoft.AspNetCore.Authorization;
 
 

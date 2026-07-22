@@ -1,7 +1,7 @@
 ﻿
 namespace myshop.DAL.Entities;
 
-public class OrderHeader
+public class OrderHeader : IDomainModelMarker
 {
     public int Id { get; set; }
 

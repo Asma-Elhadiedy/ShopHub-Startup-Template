@@ -131,6 +131,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\.eslintrc.
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\order.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\pages\dashboard3.js
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\orders.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\site.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\jquery-ui\jquery-ui.theme.min.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
@@ -145,6 +146,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\jquery-va
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\fontawesome-free\css\svg-with-js.min.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.components.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.light.min.css.map
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\login.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\modules\users.js
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\bootstrap\js\bootstrap.bundle.js.map
@@ -233,6 +235,7 @@ wwwroot\css\alt\adminlte.plugins.min.css.map
 wwwroot\css\create.css
 wwwroot\css\dashboard.css
 wwwroot\css\layout.css
+wwwroot\css\login.css
 wwwroot\css\site.css
 wwwroot\css\summary.css
 wwwroot\customer\assets\favicon.ico
@@ -283,6 +286,7 @@ wwwroot\js\adminlte.min.js.map
 wwwroot\js\demo.js
 wwwroot\js\modules\categories.js
 wwwroot\js\modules\dashboard.js
+wwwroot\js\modules\orders.js
 wwwroot\js\modules\products.js
 wwwroot\js\modules\users.js
 wwwroot\js\order.js

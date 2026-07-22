@@ -1,10 +1,14 @@
 ﻿@{
     var fullName = HttpContextAccessor.HttpContext.Session.GetString("FullName");
     var imageUrl = HttpContextAccessor.HttpContext.Session.GetString("ImageUrl");
+    if (imageUrl == string.Empty)
+    {
+        imageUrl = "img/avatar5.png";
+    }
 }
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-    <a asp-controller="Dashboard"
+    <a asp-controller="Category"
        asp-action="Index"
        class="brand-link">
         <img src="~/img/download.png"
@@ -33,7 +37,7 @@
 
             <ul class="nav nav-pills nav-sidebar flex-column">
 
-                <li class="nav-item" id="js-dashboardSidebar">
+@*                 <li class="nav-item" id="js-dashboardSidebar">
                     <a asp-controller="Dashboard"
                        asp-action="Index"
                        class="nav-link">
@@ -41,7 +45,7 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
-
+ *@
                 <li class="nav-item" id="js-categoriesSidebar">
                     <a asp-controller="Category"
                        asp-action="Index"
@@ -69,7 +73,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item" id="js-ordersSidebar">
                     <a asp-controller="Order"
                        asp-action="Index"
                        class="nav-link">
