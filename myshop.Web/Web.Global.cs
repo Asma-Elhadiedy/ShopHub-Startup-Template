@@ -2,6 +2,7 @@
 
 global using myshop.BLL.Services;
 global using myshop.DAL.Entities;
+global using myshop.BLL.Extensions;
 global using myshop.BLL.ViewModels;
 global using myshop.BLL.DBInitializer;
 global using Microsoft.AspNetCore.Mvc;

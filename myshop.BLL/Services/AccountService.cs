@@ -5,6 +5,7 @@ namespace myshop.BLL.Services;
 public class AccountService(ILogger<AccountService> _logger,
     IUnitOfWork _unitOfWork,
     IMapper _mapper,
+    IHttpContextAccessor _httpContextAccessor,
     SignInManager<ApplicationUser> _signInManager,
     UserManager<ApplicationUser> _userManager) : IAccountService
 {
@@ -42,7 +43,14 @@ public class AccountService(ILogger<AccountService> _logger,
 
         var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
         if (result.Succeeded)
+        {
+            var session = _httpContextAccessor.HttpContext.Session;
+            session.SetString("FullName", $"{user.FullName}");
+            session.SetString("ImageUrl", user.ImagePath ?? string.Empty);
+
             return true;
+        }
+
 
         return false;
     }

@@ -564,7 +564,6 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\c
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\dj2ydb2afk-{0}-mb33zfptxh-mb33zfptxh.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\a3y8byyhz0-{0}-xtk6lyw272-xtk6lyw272.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\ph96uys8uu-{0}-ymjiesd2kl-ymjiesd2kl.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\kzzib16b79-{0}-mgrnnia84d-mgrnnia84d.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\z1mltdm9ad-{0}-c2tiyv64ts-c2tiyv64ts.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\dyu4h0fn7q-{0}-ef9indsk5l-ef9indsk5l.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\mdmtwf5y8u-{0}-devepoo3hg-devepoo3hg.gz
@@ -577,8 +576,6 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\c
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\52k08fiqo9-{0}-l61bx3l3ra-l61bx3l3ra.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\r3u157b2cq-{0}-u5ei7o9gkk-u5ei7o9gkk.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\pxx3b4zck6-{0}-b94bpnyws4-b94bpnyws4.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\l2dtgoh887-{0}-nw9pd9jtz2-nw9pd9jtz2.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\vppsbzsucd-{0}-i3s08lqvzg-i3s08lqvzg.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\uiyjv9ygcc-{0}-czcl1pt3cn-czcl1pt3cn.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\lipdtyv2u0-{0}-6m5ktcz08b-6m5ktcz08b.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\gy052s402h-{0}-jcitzkfdw9-jcitzkfdw9.gz
@@ -702,3 +699,10 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\r
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\myshop.Web.pdb
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\myshop.Web.genruntimeconfig.cache
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\ref\myshop.Web.dll
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\dp4fqzqbip-{0}-87kvqhbhuu-87kvqhbhuu.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\kzzib16b79-{0}-6jivjrnpps-6jivjrnpps.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\elpbhwgrxz-{0}-x0mtx42rvy-x0mtx42rvy.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\l2dtgoh887-{0}-txd38ya4fe-txd38ya4fe.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\jg7t9020gh-{0}-y7l50jprth-y7l50jprth.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\vppsbzsucd-{0}-c8ywcuu5hu-c8ywcuu5hu.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Release\net10.0\compressed\xw7pgg81ar-{0}-sf28j2ktty-sf28j2ktty.gz

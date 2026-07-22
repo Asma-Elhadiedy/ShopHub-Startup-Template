@@ -1,4 +1,8 @@
-﻿<aside class="main-sidebar sidebar-dark-primary elevation-4">
+﻿@{
+    var fullName = HttpContextAccessor.HttpContext.Session.GetString("FullName");
+    var imageUrl = HttpContextAccessor.HttpContext.Session.GetString("ImageUrl");
+}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
 
     <a asp-controller="Dashboard"
        asp-action="Index"
@@ -14,13 +18,13 @@
 
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="~/img/user2-160x160.jpg"
+                <img src="~/@imageUrl"
                      class="img-circle elevation-2">
             </div>
 
             <div class="info">
                 <a href="#" class="d-block">
-                    Administrator
+                    User: @fullName
                 </a>
             </div>
         </div>
