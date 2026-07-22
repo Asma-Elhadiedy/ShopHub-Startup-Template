@@ -45,6 +45,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\js\adminlte.j
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.pages.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.components.css.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.plugins.css.map
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\create.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\summary.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
@@ -199,6 +200,7 @@ wwwroot\Images\Products\e6c4961b-1c83-4da0-bf6d-f6c4901fb9b9.jpeg
 wwwroot\Images\Products\e950c97f-ce7c-4768-a884-491e4a334c8f.jpg
 wwwroot\Images\Products\eb1e8683-8559-4957-92c0-773fd02e4c7c.jpg
 wwwroot\Images\Products\ef491e09-7bef-4e18-af5c-71441104b8eb.jpg
+wwwroot\Images\users\3c03e7da-b2b1-43e8-b086-b9628e575f13.png
 wwwroot\css\adminlte.css
 wwwroot\css\adminlte.css.map
 wwwroot\css\adminlte.min.css
@@ -227,6 +229,7 @@ wwwroot\css\alt\adminlte.plugins.css
 wwwroot\css\alt\adminlte.plugins.css.map
 wwwroot\css\alt\adminlte.plugins.min.css
 wwwroot\css\alt\adminlte.plugins.min.css.map
+wwwroot\css\create.css
 wwwroot\css\dashboard.css
 wwwroot\css\layout.css
 wwwroot\css\site.css
@@ -251,6 +254,7 @@ wwwroot\img\credit\paypal.png
 wwwroot\img\credit\paypal2.png
 wwwroot\img\credit\visa.png
 wwwroot\img\default-150x150.png
+wwwroot\img\download.png
 wwwroot\img\icons.png
 wwwroot\img\login@4x.png
 wwwroot\img\photo1.png

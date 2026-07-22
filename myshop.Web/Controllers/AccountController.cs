@@ -13,7 +13,7 @@ public class AccountController(IAccountService _accountService) : Controller
         var isSuccess = await _accountService.RegisterUserAsync(model);
         if (isSuccess)
             return RedirectToAction("Index", "Home");
-        return View(isSuccess);
+        return View();
     }
 
     public async Task<IActionResult> Login()
@@ -24,7 +24,7 @@ public class AccountController(IAccountService _accountService) : Controller
     {
         var isSuccess = await _accountService.SignInAsync(model);
         if (isSuccess)
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Category");
         return View(isSuccess);
     }
 

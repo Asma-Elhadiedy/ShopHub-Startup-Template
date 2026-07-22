@@ -12,10 +12,10 @@ public class AccountService(ILogger<AccountService> _logger,
     {
 
         var isEmailExist = await _unitOfWork.Repository<ApplicationUser>()
-       .IsExistAsync(u => u.Email == model.Email);
+            .IsExistAsync(u => u.Email == model.Email);
         if (isEmailExist)
         {
-            _logger.LogError("Sign in trial with non-existent email address.");
+            _logger.LogError("Register trial with an existent email address.");
             return false;
         }
 
@@ -27,10 +27,10 @@ public class AccountService(ILogger<AccountService> _logger,
         var roleAssignmentResult = await _userManager.AddToRoleAsync(user, ConstRoles.Customer);
         if (roleAssignmentResult.Succeeded)
             return true;
-        
+
         return false;
     }
-    
+
     public async Task<bool> SignInAsync(LoginVM model)
     {
         var user = await _userManager.FindByEmailAsync(model.Email);

@@ -10,6 +10,7 @@ public class FileService(IHostEnvironment _hostEnvironment) : IFileService
     public async Task<string> SaveFileAsync(IFormFile file, string folder)
     {
         var uploadPath = Path.Combine(_hostEnvironment.ContentRootPath, ConstPath.WWWRootPath, folder);
+        Directory.CreateDirectory(uploadPath);
 
         var ext = Path.GetExtension(file.FileName);
         var fileName = $"{Guid.NewGuid()}{ext}";

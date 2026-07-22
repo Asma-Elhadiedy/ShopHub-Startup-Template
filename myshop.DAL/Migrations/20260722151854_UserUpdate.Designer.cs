@@ -12,7 +12,7 @@ using myshop.DAL.Data;
 namespace myshop.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20260722133220_UserUpdate")]
+    [Migration("20260722151854_UserUpdate")]
     partial class UserUpdate
     {
         /// <inheritdoc />
@@ -167,11 +167,9 @@ namespace myshop.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -187,6 +185,9 @@ namespace myshop.DAL.Migrations
 
                     b.Property<string>("FullName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsLocked")

@@ -13,4 +13,22 @@ public class UserController(IUserService _userService) : Controller
         return Json(new { data });
     }
 
+
+    public IActionResult Create()
+    {
+        return View(new RegisterVM());
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(RegisterVM model)
+    {
+        if (!ModelState.IsValid)
+            return View(model);
+
+        var isSuccess = await _userService.CreateUserAsync(model);
+        if (isSuccess)
+            return RedirectToAction("Index");
+        return View();
+    }
+
 }

@@ -14,15 +14,13 @@ namespace myshop.DAL.Migrations
                 name: "Address",
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "City",
                 table: "AspNetUsers",
                 type: "nvarchar(max)",
-                nullable: false,
-                defaultValue: "");
+                nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "FullName",
@@ -30,6 +28,12 @@ namespace myshop.DAL.Migrations
                 type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
+
+            migrationBuilder.AddColumn<string>(
+                name: "ImagePath",
+                table: "AspNetUsers",
+                type: "nvarchar(max)",
+                nullable: true);
 
             migrationBuilder.AddColumn<bool>(
                 name: "IsLocked",
@@ -52,6 +56,10 @@ namespace myshop.DAL.Migrations
 
             migrationBuilder.DropColumn(
                 name: "FullName",
+                table: "AspNetUsers");
+
+            migrationBuilder.DropColumn(
+                name: "ImagePath",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(

@@ -18,5 +18,9 @@ public class RegisterVM
     [Compare(nameof(Password), ErrorMessage = ConstMessages.PasswordsDoNotMatch)]
     public string ConfirmPassword { get; set; } = default!;
 
+    public IFormFile Image { get; set; }
+    
+    [ValidateNever]
+    public string ImagePath { get; set; }
 
 }

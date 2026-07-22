@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,23 +5,15 @@ var builder = WebApplication.CreateBuilder(args);
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string is missing");
 
-//builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDAL(connectionString).AddIdentityService().AddDefaultUI();
+builder.Services.AddBLL();
 
-//builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
-
-builder.Services.AddBLL(connectionString);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
-
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>(
-   options => options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(4))
-   .AddDefaultTokenProviders()
-   .AddDefaultUI()
-   .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
 builder.Services.AddMiniProfiler(options =>
@@ -36,7 +25,7 @@ builder.Services.AddMiniProfiler(options =>
 
 
 var app = builder.Build();
-//await app.InitializeDatabaseAsync();
+await app.InitializeDatabaseAsync();
 
 
 // Configure the HTTP request pipeline.

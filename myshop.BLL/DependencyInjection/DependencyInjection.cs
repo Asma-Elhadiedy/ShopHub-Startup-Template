@@ -6,7 +6,7 @@ public static class DependencyInjection
 {
     extension(IServiceCollection services)
     {
-        public IServiceCollection AddBLL(string connectionString)
+        public IServiceCollection AddBLL()
         {
             services.AddScoped<ISeedData, SeedData>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -19,7 +19,6 @@ public static class DependencyInjection
 
             services.AddAutoMapper(cfg => cfg.AddProfile<MappingProfile>());
 
-            services.AddDAL(connectionString);
             return services;
         }
     }
