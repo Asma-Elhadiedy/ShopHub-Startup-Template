@@ -1,0 +1,64 @@
+﻿@model UserVM
+
+@{
+    ViewBag.Title = "Users Management";
+    ViewBag.CardTitle = "Delete User";
+}
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<link href="~/css/delete.css" rel="stylesheet" />
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="custom-card">
+
+            <div class="custom-card-header">
+                <h4><i class="fa-solid fa-trash me-2 text-danger"></i> @ViewBag.CardTitle</h4>
+            </div>
+
+            <div class="card-body p-4">
+
+                <form asp-action="DeleteConfirmed" method="post">
+                    <input type="hidden" asp-for="Id" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label asp-for="FullName" class="form-label">
+                            <i class="fa-solid fa-tag me-1"></i> Full Name
+                        </label>
+                        <input asp-for="FullName" class="form-control" disabled />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-4">
+                        <label asp-for="Email" class="form-label">
+                            <i class="fa-solid fa-align-left me-1"></i> Email
+                        </label>
+                        <textarea asp-for="Email" rows="4" class="form-control" disabled>@Html.Raw(Model.Email?.Replace("<", "").Replace(">", ""))</textarea>
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="fa-solid fa-arrow-left me-1"></i> Back
+                        </a>
+
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa-solid fa-trash me-1"></i> Delete User
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -149,6 +149,7 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\admin
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\alt\adminlte.light.min.css.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\login.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\delete.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\bootstrap\js\bootstrap.bundle.js.map
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\plugins\sweetalert2\sweetalert2.css
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\wwwroot\css\site.css
@@ -206,6 +207,7 @@ wwwroot\Images\users\3c03e7da-b2b1-43e8-b086-b9628e575f13.png
 wwwroot\Images\users\61bc3002-99fb-412d-8b4e-78356121fd79.jpg
 wwwroot\Images\users\b195ab60-768f-4884-9da2-c2f0d4d8b32c.png
 wwwroot\Images\users\b9928bea-d177-48ad-9134-619cf97c7a86.jpg
+wwwroot\Images\users\c8286a11-0fb5-4fa1-a52e-d09f7a0d7294.jpg
 wwwroot\css\adminlte.css
 wwwroot\css\adminlte.css.map
 wwwroot\css\adminlte.min.css
@@ -236,6 +238,7 @@ wwwroot\css\alt\adminlte.plugins.min.css
 wwwroot\css\alt\adminlte.plugins.min.css.map
 wwwroot\css\create.css
 wwwroot\css\dashboard.css
+wwwroot\css\delete.css
 wwwroot\css\layout.css
 wwwroot\css\login.css
 wwwroot\css\site.css

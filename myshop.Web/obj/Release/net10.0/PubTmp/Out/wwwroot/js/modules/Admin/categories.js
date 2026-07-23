@@ -8,7 +8,7 @@ $(function () {
 
 const datatableOptions = {
     ajax: {
-        url: `${appBasePath}/Category/GetData`,
+        url: `${appBasePath}/Admin/Category/GetData`,
         type: "GET",
     },
     columns: [
@@ -34,11 +34,11 @@ const datatableOptions = {
             orderable: false,
             render: function (data) {
                 return `
-                        <a href="${appBasePath}/Category/Edit/${data}" class="btn btn-success btn-sm">
+                        <a href="${appBasePath}/Admin/Category/Edit/${data}" class="btn btn-success btn-sm">
                             <i class="fa-solid fa-pen"></i> Edit
                         </a>
 
-                        <a href="${appBasePath}/Category/Delete/${data}" class="btn btn-danger btn-sm">
+                        <a href="${appBasePath}/Admin/Category/Delete/${data}" class="btn btn-danger btn-sm">
                             <i class="fa-solid fa-trash"></i> Delete
                         </a>
                     `;

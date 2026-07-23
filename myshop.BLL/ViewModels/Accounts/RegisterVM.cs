@@ -3,6 +3,7 @@ namespace myshop.BLL.ViewModels.Accounts;
 
 public class RegisterVM
 {
+
     [Required]
     [EmailAddress]
     public string Email { get; set; } = default!;

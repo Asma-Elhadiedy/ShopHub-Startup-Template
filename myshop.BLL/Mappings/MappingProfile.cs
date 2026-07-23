@@ -11,8 +11,9 @@ public class MappingProfile : Profile
         CreateMap<Category, CategoryDto>().ReverseMap();
         CreateMap<Category, CategoryVM>().ReverseMap();
 
-        CreateMap<ApplicationUser, UserDto>().ReverseMap();
+        CreateMap<UserDto, ApplicationUser>().ReverseMap();
         CreateMap<ApplicationUser, RegisterVM>().ReverseMap();
+        CreateMap<ApplicationUser, UserVM>().ReverseMap();
         
         CreateMap<OrderHeader, OrderDto>().ReverseMap();
 

@@ -1,42 +1,43 @@
 ﻿
 $(function () {
-    $("#js-usersSidebar").addClass("menu-open");
+    $("#js-productsSidebar").addClass("menu-open");
     dataTable = initializeDataTable("mytable", datatableOptions);
 });
 
 const datatableOptions = {
     ajax: {
-        url: `${appBasePath}/User/GetData`,
+        url: `${appBasePath}/Admin/Product/GetData`,
         type: "GET",
         dataSrc: "data"
     },
     columns: [
         {
-            title: "Full Name",
-            data: "fullName"
+            title:
+                "Name",
+            data: "name"
         },
         {
-            title: "Email",
-            data: "email"
+            title: "Description",
+            data: "description"
         },
         {
-            title: "Role",
-            data: "roleName"
+            title: "Price",
+            data: "price"
         },
         {
-            title: "Lock Status",
-            data: "isLocked"
+            title: "Category",
+            data: "categoryName"
         },
         {
             title: "Actions",
             data: "id",
             render: function (data) {
                 return `
-                        <a href="${appBasePath}/User/Edit/${data}" class="btn btn-success btn-sm">
+                        <a href="${appBasePath}/Admin/Product/Edit/${data}" class="btn btn-success btn-sm">
                             <i class="fa-solid fa-pen"></i> Edit
                         </a>
 
-                        <a href="${appBasePath}/User/Delete/${data}" class="btn btn-danger btn-sm">
+                        <a href="${appBasePath}/Admin/Product/Delete/${data}" class="btn btn-danger btn-sm">
                             <i class="fa-solid fa-trash"></i> Delete
                         </a>
                     `;

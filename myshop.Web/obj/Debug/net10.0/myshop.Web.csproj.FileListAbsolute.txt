@@ -708,4 +708,5 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\com
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\w3aoysoj0r-{0}-wmok3385rm-wmok3385rm.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\7i0bk8e0xk-{0}-fl26qat6nl-fl26qat6nl.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kzzib16b79-{0}-vml5wri72e-vml5wri72e.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kqwmca3skd-{0}-8h1p2fgb1t-8h1p2fgb1t.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\xge9of5atl-{0}-27mfe6v9lj-27mfe6v9lj.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kqwmca3skd-{0}-qqshfj2jmz-qqshfj2jmz.gz
