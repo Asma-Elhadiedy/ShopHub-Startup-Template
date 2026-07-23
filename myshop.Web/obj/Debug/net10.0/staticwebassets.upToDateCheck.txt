@@ -204,6 +204,7 @@ wwwroot\Images\Products\eb1e8683-8559-4957-92c0-773fd02e4c7c.jpg
 wwwroot\Images\Products\ef491e09-7bef-4e18-af5c-71441104b8eb.jpg
 wwwroot\Images\users\3c03e7da-b2b1-43e8-b086-b9628e575f13.png
 wwwroot\Images\users\61bc3002-99fb-412d-8b4e-78356121fd79.jpg
+wwwroot\Images\users\b195ab60-768f-4884-9da2-c2f0d4d8b32c.png
 wwwroot\Images\users\b9928bea-d177-48ad-9134-619cf97c7a86.jpg
 wwwroot\css\adminlte.css
 wwwroot\css\adminlte.css.map

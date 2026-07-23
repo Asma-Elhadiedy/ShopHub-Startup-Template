@@ -46,6 +46,12 @@ public class AccountService(ILogger<AccountService> _logger,
             return false;
         }
 
+        if(user.IsLocked)
+        {
+            _logger.LogError("Sign in trial with a locked user account.");
+            return false;
+        }
+
         var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, false);
         if (result.Succeeded)
         {

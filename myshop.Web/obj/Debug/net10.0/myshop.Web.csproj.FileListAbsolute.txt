@@ -697,7 +697,6 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\bin\Debug\net10.0\ru\
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kzzib16b79-{0}-6jivjrnpps-6jivjrnpps.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\elpbhwgrxz-{0}-x0mtx42rvy-x0mtx42rvy.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\dp4fqzqbip-{0}-87kvqhbhuu-87kvqhbhuu.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\x0o6n7i0f9-{0}-7p3xkar92z-7p3xkar92z.gz
@@ -708,4 +707,5 @@ D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\com
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\qltzptun7c-{0}-y7l50jprth-y7l50jprth.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\w3aoysoj0r-{0}-wmok3385rm-wmok3385rm.gz
 D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\7i0bk8e0xk-{0}-fl26qat6nl-fl26qat6nl.gz
-D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kqwmca3skd-{0}-fe3d839qpn-fe3d839qpn.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kzzib16b79-{0}-vml5wri72e-vml5wri72e.gz
+D:\Code\Asma-Elhadiedy\ShopHub-Startup-Template\myshop.Web\obj\Debug\net10.0\compressed\kqwmca3skd-{0}-8h1p2fgb1t-8h1p2fgb1t.gz

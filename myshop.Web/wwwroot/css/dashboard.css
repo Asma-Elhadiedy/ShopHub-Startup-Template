@@ -248,3 +248,8 @@ body, .nav-link, .brand-text, .content-wrapper {
 .top-btn {
     margin-bottom: 15px;
 }
+
+.lock {
+    font-size: 24px;
+}
+
