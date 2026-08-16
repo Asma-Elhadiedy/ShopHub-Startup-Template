@@ -1,0 +1,64 @@
+﻿@model CategoryVM
+
+@{
+    ViewBag.Title = "Category Management";
+    ViewBag.CardTitle = "Edit Category";
+}
+
+<link href="~/css/edit.css" rel="stylesheet" />
+
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="custom-card">
+
+            <div class="custom-card-header">
+                <h4><i class="fas fa-edit me-2 text-primary"></i> @ViewBag.CardTitle</h4>
+            </div>
+
+            <div class="card-body p-4">
+
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="Id" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <!-- Name -->
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label">
+                            <i class="fas fa-tag me-1"></i> Category Name
+                        </label>
+                        <input asp-for="Name" class="form-control" placeholder="Enter category name..." />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <!-- Description -->
+                    <div class="mb-4">
+                        <label asp-for="Description" class="form-label">
+                            <i class="fas fa-align-left me-1"></i> Description
+                        </label>
+                        <textarea asp-for="Description"
+                                  rows="4"
+                                  class="form-control"
+                                  placeholder="Enter description...">@System.Net.WebUtility.HtmlDecode(System.Text.RegularExpressions.Regex.Replace(Model.Description ?? "", "<.*?>", string.Empty))</textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <!-- Footer Buttons -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a asp-area="Admin" asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="fas fa-arrow-left me-1"></i> Back
+                        </a>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="far fa-save me-1"></i> Save Changes
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+

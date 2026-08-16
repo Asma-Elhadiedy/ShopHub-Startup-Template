@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@(ViewBag.Title ?? "My Shop | Dashboard")</title>
+
+    <!-- AdminLTE -->
+    <link rel="stylesheet" href="~/css/adminlte.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+    <!-- Font Awesome -->
+    <link href="~/lib/fontawesome-free/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+    <!-- Sweet Alert-->
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+
+    <!-- Toaster -->
+    <link href="~/lib/toastr.js/toastr.min.css" rel="stylesheet" />
+
+    <!-- DataTable -->
+    <link href="~/lib/datatables/css/jquery.datatables.min.css" rel="stylesheet" />
+
+    <!-- Select2 -->
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="~/css/dashboard.css" rel="stylesheet" />
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+
+    <div class="wrapper">
+
+        <!-- Navbar -->
+        <partial name="_AdminNavbar" />
+
+        <!-- Sidebar -->
+        <partial name="_AdminSidebar" />
+
+        <!-- Content -->
+        <div class="content-wrapper">
+
+            <section class="content-header">
+                <div class="container-fluid">
+                    <h1>@ViewBag.Title</h1>
+                </div>
+            </section>
+
+            <section class="content">
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <h3 class="card-title">
+                            @ViewBag.CardTitle
+                        </h3>
+
+                        <div class="card-tools">
+                            <button type="button"
+                                    class="btn btn-tool"
+                                    data-card-widget="collapse">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <button type="button"
+                                    class="btn btn-tool"
+                                    data-card-widget="remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+                        @RenderBody()
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <partial name="_Footer" />
+
+    </div>
+
+    <partial name="_Scripts" />
+    <partial name="_Toaster" />
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

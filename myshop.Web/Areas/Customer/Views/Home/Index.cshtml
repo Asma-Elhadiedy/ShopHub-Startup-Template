@@ -1,0 +1,35 @@
+﻿@model List<SelectListItem>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<link href="~/css/productsshopping.css" rel="stylesheet" />
+
+<div class="container">
+    <h2 class="fw-bold mb-4">Products Categories</h2>
+    <div class="categories-filter-wrapper">
+
+        <div class="categories-filter">
+            @if (Model.Any())
+            {
+                @foreach (var category in Model)
+                {
+                    <button class="btn btn-outline-primary me-2 category-btn category-card"
+                            onclick="filterProductsByCategory(@category.Value)"
+                            id="js-category-@category.Value">
+                        <span class="category-icon" data-icon-for="@category.Text.ToLower()"></span>
+                        <span class="category-label">@category.Text</span>
+                    </button>
+                }
+            }
+        </div>
+    </div>
+    <div class="row g-4" id="js-productsSection"> </div>
+
+    <input type="hidden" id="js-beforeLoginCartId" value="@ViewData["BeforeLoginCartId"]" />
+</div>
+
+@section Scripts {
+
+    <script src="~/js/modules/customer/home.js"></script>
+}

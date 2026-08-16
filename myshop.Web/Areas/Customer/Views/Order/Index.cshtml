@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Orders";
+    ViewBag.CardTitle = "My Orders";
+}
+
+<!-- Google Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+
+<!-- AdminLTE -->
+<link rel="stylesheet" href="~/css/adminlte.min.css">
+
+<!-- Plugins -->
+<link href="~/lib/toastr.js/toastr.min.css" rel="stylesheet" />
+
+<link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+<link href="~/lib/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+
+<!-- Custom CSS -->
+<link href="~/css/dashboard.css" rel="stylesheet" />
+
+<div class="custom-card">
+
+    <div class="custom-card-title">
+        <i class="fas fa-box-open me-2"></i>
+        @ViewBag.CardTitle
+    </div>
+
+    <table id="mytable" class="display table-hover" width="100%">
+    </table>
+
+</div>
+
+@section Scripts {
+    <script src="~/js/modules/customer/orders.js"></script>
+}
+
+

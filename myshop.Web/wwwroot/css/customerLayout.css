@@ -1,0 +1,121 @@
+﻿html {
+    height: 100%;
+}
+body {
+    background: linear-gradient(135deg, #eef2f7 0%, #d9e4f5 40%, #c3dafe 100%);
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    animation: fadeIn 1s ease-in-out;
+
+    /* sticky footer */
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+nav.navbar {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(90deg, #ffffff 0%, #f8fbff 100%) !important;
+    padding: 1rem 0 !important;
+    animation: slideDown 0.8s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.7rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-link-box {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    margin-left: 10px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    text-align: center;
+    font-weight: 600;
+}
+
+    .nav-link-box:hover {
+        background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    }
+
+    /* Home الحجم الكبير */
+    .nav-link-box.home-box {
+        padding: 0.9rem 1.8rem;
+        font-size: 1.1rem;
+    }
+
+header.hero {
+    background: linear-gradient(120deg, #0d6efd 0%, #004bba 50%, #002f7a 100%);
+    padding: 1rem 0 1rem;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    animation: fadeHero 1.2s ease-in-out;
+}
+
+@keyframes fadeHero {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+main {
+    padding: 3rem 0;
+    animation: fadeIn 1.5s ease-in-out;
+    /* sticky footer: main absorbs all leftover vertical space */
+    flex: 1 0 auto;
+}
+
+footer {
+    background: linear-gradient(90deg, #0b0b0b, #1a1a1a);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    padding: 2.5rem 0;
+    color: #fff;
+    text-align: center;
+
+    /* sticky footer: never shrink below its content height */
+    flex-shrink: 0;
+}
+
+.cart-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.7rem 1.4rem;
+    border-radius: 14px;
+}

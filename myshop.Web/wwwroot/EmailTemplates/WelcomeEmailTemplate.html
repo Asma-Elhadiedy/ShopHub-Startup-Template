@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome</title>
+</head>
+<body style="margin:0; padding:0; background-color:#eef2f7; font-family:'Segoe UI', Roboto, Arial, sans-serif;">
+
+    <!-- preview text (hidden, shows in inbox preview) -->
+    <div style="display:none; max-height:0; overflow:hidden; opacity:0;">
+        Welcome to My Shop, {{UserName}}! Your account is ready.
+    </div>
+
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eef2f7; padding:24px 0;">
+        <tr>
+            <td align="center">
+
+                <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:100%; background-color:#ffffff; border-radius:20px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.08);">
+
+                    <!-- header / hero -->
+                    <tr>
+                        <td align="center" bgcolor="#0072ff"
+                            style="background-color:#0072ff; background-image:linear-gradient(120deg, #0d6efd 0%, #004bba 50%, #002f7a 100%); padding:44px 24px; color:#ffffff;">
+                            <div style="font-size:22px; font-weight:800; letter-spacing:0.5px; margin-bottom:14px;">My Shop</div>
+
+                            <!-- welcome icon badge -->
+                            <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto 16px;">
+                                <tr>
+                                    <td width="64" height="64" align="center" valign="middle" bgcolor="#ffffff"
+                                        style="width:64px; height:64px; border-radius:50%; background-color:#ffffff; font-size:28px;">
+                                        &#128075;
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div style="font-size:21px; font-weight:700;">Welcome aboard, {{UserName}}!</div>
+                            <div style="font-size:14px; opacity:0.85; margin-top:6px;">We're so glad you're here.</div>
+                        </td>
+                    </tr>
+
+                    <!-- greeting -->
+                    <tr>
+                        <td style="padding:28px 32px 8px;">
+                            <p style="margin:0; font-size:15px; color:#1a1a2e;">
+                                Hi {{UserName}},
+                            </p>
+                            <p style="margin:8px 0 0; font-size:14px; color:#667; line-height:1.6;">
+                                Thanks for creating an account with My Shop. Your account is now active and ready to go —
+                                here's a quick look at what you can do next.
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- account details -->
+                    <tr>
+                        <td style="padding:20px 32px 0;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f7fc; border-radius:14px;">
+                                <tr>
+                                    <td style="padding:18px 20px;">
+                                        <div style="font-size:13px; font-weight:700; color:#1a1a2e; margin-bottom:10px;">Your Account</div>
+                                        <div style="font-size:13px; color:#556; line-height:1.7;">
+                                            <strong>Name:</strong> {{UserName}}<br />
+                                            <strong>Email:</strong> {{UserEmail}}
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- "what's next" feature list -->
+                    <tr>
+                        <td style="padding:28px 32px 0;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td width="40" valign="top" style="padding-bottom:18px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" height="32" align="center" valign="middle" bgcolor="#0072ff"
+                                                    style="width:32px; height:32px; border-radius:10px; background-color:#0072ff; background-image:linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); font-size:14px; color:#ffffff; font-weight:700;">
+                                                    1
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td valign="top" style="padding-bottom:18px; padding-left:6px;">
+                                        <div style="font-size:14px; font-weight:700; color:#1a1a2e;">Browse our catalog</div>
+                                        <div style="font-size:13px; color:#667; margin-top:2px;">Discover products picked just for you.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="40" valign="top" style="padding-bottom:18px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" height="32" align="center" valign="middle" bgcolor="#0072ff"
+                                                    style="width:32px; height:32px; border-radius:10px; background-color:#0072ff; background-image:linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); font-size:14px; color:#ffffff; font-weight:700;">
+                                                    2
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td valign="top" style="padding-bottom:18px; padding-left:6px;">
+                                        <div style="font-size:14px; font-weight:700; color:#1a1a2e;">Save items to your cart</div>
+                                        <div style="font-size:13px; color:#667; margin-top:2px;">Come back anytime — your cart stays saved.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="40" valign="top">
+                                        <table role="presentation" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td width="32" height="32" align="center" valign="middle" bgcolor="#0072ff"
+                                                    style="width:32px; height:32px; border-radius:10px; background-color:#0072ff; background-image:linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); font-size:14px; color:#ffffff; font-weight:700;">
+                                                    3
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td valign="top" style="padding-left:6px;">
+                                        <div style="font-size:14px; font-weight:700; color:#1a1a2e;">Check out securely</div>
+                                        <div style="font-size:13px; color:#667; margin-top:2px;">Cash on delivery, card, or Apple Pay — your choice.</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- CTA button -->
+                    <tr>
+                        <td align="center" style="padding:28px 32px 32px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="center" bgcolor="#0072ff" style="border-radius:14px; background-color:#0072ff; background-image:linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);">
+                                        <a href="{{StoreUrl}}"
+                                           style="display:inline-block; padding:12px 28px; font-size:14px; font-weight:700; color:#ffffff; text-decoration:none;">
+                                            Start Shopping
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- footer -->
+                    <tr>
+                        <td bgcolor="#0b0b0b" style="background-color:#0b0b0b; padding:24px 32px; text-align:center;">
+                            <div style="font-size:12px; color:#ffffff; opacity:0.7; line-height:1.6;">
+                                &copy; {{CurrentYear}} My Shop. All rights reserved.<br />
+                                Didn't create this account? Contact us at <a href="mailto:asmaelhadiedy@gmail.com" style="color:#00c6ff; text-decoration:none;">support@myshop.com</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

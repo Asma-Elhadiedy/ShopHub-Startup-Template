@@ -1,0 +1,85 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>My Shop</title>
+
+    <link href="~/lib/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS-->     
+    <link href="~/css/customerlayout.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="~/Home/Index">My Shop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link-box home-box nav-link active" href="~/Customer">Home</a>
+                    </li>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole(ConstRoles.Admin))
+                        {
+                            <li class="nav-item">
+                                <!-- تم إضافة home-box هنا -->
+                                <a class="nav-link-box home-box nav-link" href="~/Admin/Category">Dashboard</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link-box nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown">My Setting</a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="~/Customer/Order">My Orders</a></li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li><a class="dropdown-item" href="~/Account/Manage">Edit Profile</a></li>
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+
+                <div class="nav-link-box">
+                    <partial name="_LoginPartial" />
+                </div>
+
+                <a href="~/Customer/Cart/Index" class="nav-link-box cart-btn">
+                    <i class="bi bi-cart-fill"></i>
+                    Cart
+                    <span id="navCartCount" class="badge bg-dark text-white rounded-pill"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero text-white text-center">
+        <div class="container">
+            <h1 class="display-4">Welcome to My Shop</h1>
+            <p class="lead text-white-50">Find amazing products with great prices</p>
+        </div>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <partial name="_Footer" />
+    <partial name="_Scripts" />
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

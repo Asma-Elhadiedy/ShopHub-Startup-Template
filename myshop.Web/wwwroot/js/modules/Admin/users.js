@@ -1,0 +1,67 @@
+﻿
+$(function () {
+    $("#js-usersSidebar").addClass("menu-open");
+    dataTable = initializeDataTable("mytable", datatableOptions);
+});
+
+const datatableOptions = {
+    ajax: {
+        url: `${appBasePath}/Admin/User/GetData`,
+        type: "POST",
+    },
+    columns: [
+        {
+            title: "Full Name",
+            data: "fullName"
+        },
+        {
+            title: "Email",
+            data: "email"
+        },
+        {
+            title: "Role",
+            data: "roleNames",
+            orderable: false
+        },
+        {
+            title: "Lock Status",
+            data: "isLocked",
+            render: function (isLocked) {
+                return isLocked
+                    ? `<i class="fas fa-lock lock"></i>`
+                    : ``;
+            }
+        },
+        {
+            title: "Actions",
+            data: "id",
+            render: function (data, type, row) {
+
+                let actions = `
+                    <a href="${appBasePath}/Admin/User/EditRole/${data}" class="btn btn-primary btn-sm">
+                        <i class="fas fa-pen"></i> Edit Role
+                    </a>`;
+
+                if (!row.isCurrentUser)
+                    actions += `
+                        ${row.isLocked
+                            ? `<a href="${appBasePath}/Admin/User/ChangeStatus/${data}" class="btn btn-success btn-sm">
+                                    <i class="fas fa-lock-open"></i>  Unlock
+                               </a>`
+                            : `<a href="${appBasePath}/Admin/User/ChangeStatus/${data}" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-lock"></i>  Lock
+                               </a>`
+                        }
+                        <a href="${appBasePath}/Admin/User/Delete/${data}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Delete    
+                        </a>`;
+
+                return actions;
+                ;
+            }
+        }
+    ],
+    autoWidth: false,
+    scrollX: true
+};
+
