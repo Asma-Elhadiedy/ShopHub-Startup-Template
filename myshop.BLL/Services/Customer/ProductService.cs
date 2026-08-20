@@ -47,7 +47,9 @@ public class ProductService(
     {
         try
         {
-            var storageDomainPath = await _settingsService.GetDomainPath(isWWWRoot: true);
+            //categoryId = categoryId == 0 ? int.Parse((await PrepareListAsync(ct)).FirstOrDefault()?.Value ?? "1") : categoryId;
+            var storageDomainPath = await _settingsService.GetStorageDomainPath(isWWWRoot: true);
+            //var predicate = (Expression<Func<Product, bool>>)(p => p.CategoryId == categoryId);
             var predicate = categoryId == 0 ? null : (Expression<Func<Product, bool>>)(p => p.CategoryId == categoryId);
 
             var products = await _cache.GetOrCreateAsync(
@@ -77,6 +79,46 @@ public class ProductService(
 
     }
 
+    public async Task<ProductDetailsVM?> GetProductDetailsAsync(int productId, string? customerId, CancellationToken ct)
+    {
+        try
+        {
+            var storageDomainPath = await _settingsService.GetStorageDomainPath(isWWWRoot: true);
+            var product = await _unitOfWork.Repository<Product>()
+                .GetItemSelectedAsync(
+                    item => item.Id == productId,
+                    item => new ProductDetailsVM
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Description = item.Description,
+                        ImagePath = BuildImageUrl(storageDomainPath, item.ImagePath),
+                        Price = item.Price,
+                        CategoryName = item.Category!.Name,
+                        Reviews = item.Reviews!
+                            .Select(review => new ProductReviewVM
+                            {
+                                Id = review.Id,
+                                Rating = review.Rating,
+                                Comment = review.Comment,
+                                CustomerName = string.IsNullOrWhiteSpace(review.ApplicationUser!.FullName)
+                                    ? "Customer"
+                                    : review.ApplicationUser.FullName,
+                                CreatedAt = review.CreatedAt,
+                                IsMine = customerId != null && review.ApplicationUserId == customerId
+                            })
+                            .ToList()
+                    }, ct);
+
+            return product;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to retrieve product details for product {ProductId} and customer {CustomerId}.", productId, customerId);
+            throw;
+        }
+    }
+
     private static string BuildImageUrl(string domainPath, string imagePath)
     {
         if (string.IsNullOrWhiteSpace(imagePath))
@@ -84,6 +126,6 @@ public class ProductService(
 
         var normalized = imagePath.Replace('\\', '/').TrimStart('/');
 
-        return $"/{normalized}";
+        return $"{domainPath}/{normalized}";
     }
 }

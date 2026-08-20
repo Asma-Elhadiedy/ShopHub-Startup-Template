@@ -12,7 +12,7 @@ public class AdminSettingsService(
             var updatedCount = await _unitOfWork.Repository<Product>()
                 .BulkUpdateAsync(
                     p => p.IsDeleted == true,
-                    setters => setters.SetProperty(p => p.IsDeleted, false).SetProperty(p => p.UpdatedAt, DateTime.UtcNow),
+                    setters => setters.SetProperty(p => p.IsDeleted, false).SetProperty(p => p.DeletedAt, p => null),
                     ignoreQueryFilters: true);
 
             _logger.LogWarning("Restored {UpdatedCount} deleted products by admin with Id: {AdminId}.", updatedCount, adminId);

@@ -66,7 +66,7 @@ public class OrderController(ILogger<OrderController> _logger, IOrderService _or
             else
             {
                 ResetCartSession(isClearCart: true);
-                return Ok(new ResponseMessageDto { Title = "Success!", Message = "Your order is being prepared now!" });
+                return Ok(new { redirectUrl = Url.Action(nameof(Index), new { orderId, redirect_status = "succeeded" }) });
             }
         }
         catch (Exception ex)

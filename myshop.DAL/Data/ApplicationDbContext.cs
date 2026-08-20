@@ -19,7 +19,21 @@ public class ApplicationDbContext : IdentityDbContext<
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        builder.Entity<Product>().HasQueryFilter(p => !p.IsDeleted);
+
+
+        var domainTypes = builder.Model.GetEntityTypes()
+            .Where(t => typeof(DomainModelBase).IsAssignableFrom(t.ClrType));
+
+        foreach (var entityType in domainTypes)
+        {
+            var type = entityType.ClrType;
+
+            var param = Expression.Parameter(type, "e");
+            var prop = Expression.Property(param, nameof(DomainModelBase.IsDeleted));
+            var notDeleted = Expression.Lambda(Expression.Not(prop), param);
+            
+            builder.Entity(type).HasQueryFilter(notDeleted);
+        }
 
         builder.ApplyConfigurationsFromAssembly(typeof(IDALMarker).Assembly);
     }
@@ -32,5 +46,6 @@ public class ApplicationDbContext : IdentityDbContext<
     public DbSet<ShoppingCart> Carts { get; set; }
     public DbSet<CartItem> CartItems { get; set; }
     public DbSet<ApplicationSetting> ApplicationSettings { get; set; }
+    public DbSet<Review> Reviews { get; set; }
 
 }

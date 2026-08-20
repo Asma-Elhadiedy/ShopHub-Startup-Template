@@ -7,6 +7,7 @@ public class AccountService(ILogger<AccountService> _logger,
     IFileService _fileService,
     IEmailSenderService _emailSender,
     IHttpContextAccessor _httpContextAccessor,
+    DomainPathService _domainPath,
     SignInManager<ApplicationUser> _signInManager,
     UserManager<ApplicationUser> _userManager) : IAccountService
 {
@@ -41,7 +42,7 @@ public class AccountService(ILogger<AccountService> _logger,
                     return (true, "User registered successfully.");
 
                 return (false, "Failed to assign user to role.");
-            });
+            }, ct);
 
             if (!transactionResult.isSucess && imagePath is not null)
                 _fileService.DeleteFile(imagePath);
@@ -99,6 +100,7 @@ public class AccountService(ILogger<AccountService> _logger,
 
     public async Task SignOutAsync()
     {
+        _httpContextAccessor.HttpContext.Session.Clear();
         await _signInManager.SignOutAsync();
     }
 
@@ -114,7 +116,7 @@ public class AccountService(ILogger<AccountService> _logger,
             var emailBody = htmlTemplate
                 .Replace("{{UserName}}", name)
                 .Replace("{{UserEmail}}", email)
-                .Replace("{{StoreUrl}}", GetDomainPath())
+                .Replace("{{StoreUrl}}", _domainPath.GetDomainPath())
                 .Replace("{{CurrentYear}}", DateTime.UtcNow.Year.ToString());
 
             return await _emailSender.SendAsync(new SendEmailDto(name, email, subject, emailBody), ct);
@@ -126,12 +128,4 @@ public class AccountService(ILogger<AccountService> _logger,
         }
     }
 
-    string GetDomainPath()
-    {
-        var request = _httpContextAccessor.HttpContext?.Request;
-        if (request == null)
-            return string.Empty;
-
-        return $"{request.Scheme}://{request.Host}{request.PathBase}";
-    }
 }

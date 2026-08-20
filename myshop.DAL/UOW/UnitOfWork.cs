@@ -72,11 +72,18 @@ public class UnitOfWork(ApplicationDbContext _context) : IUnitOfWork
     {
         var entries = _context.ChangeTracker.Entries();
         var changedEntries = entries.Where(e => e.State == EntityState.Modified && e.Entity is DomainModelBase);
+        var deletedEntries = entries.Where(e => e.State == EntityState.Deleted && e.Entity is DomainModelBase);
 
         var dateTime = DateTime.UtcNow;
         foreach (var entry in changedEntries)
         {
             ((DomainModelBase)entry.Entity).UpdatedAt = dateTime;
+        }
+        foreach (var entry in deletedEntries)
+        {
+            entry.State = EntityState.Modified;
+            ((DomainModelBase)entry.Entity).IsDeleted = true;
+            ((DomainModelBase)entry.Entity).DeletedAt = dateTime;
         }
 
         return await _context.SaveChangesAsync(ct);

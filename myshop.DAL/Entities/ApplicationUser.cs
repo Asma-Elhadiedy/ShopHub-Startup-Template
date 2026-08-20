@@ -17,4 +17,5 @@ public class ApplicationUser : IdentityUser, IDomainModelMarker
 
     public ICollection<ShoppingCart>? Carts { get; set; } = [];
     public ICollection<ApplicationUserRole> UserRoles { get; set; } = [];
+    public ICollection<Review>? Reviews { get; set; } = [];
 }

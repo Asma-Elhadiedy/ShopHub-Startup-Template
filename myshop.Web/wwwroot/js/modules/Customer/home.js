@@ -4,7 +4,7 @@ let beforeLoginCartId = $("#js-beforeLoginCartId").val();
 $(function () {
     filterProductsByCategory(0);
 
-    if (beforeLoginCartId > 0) {
+    if (beforeLoginCartId && beforeLoginCartId > 0) {
         confirmationMessage(
             {
                 title: "Old cart from your last login!",
@@ -51,18 +51,6 @@ function addToCart(productId) {
 
 }
 
-function updateNavBadge() {
-    let url = `${appBasePath}/Customer/Cart/GetCartItemsCount`;
-
-    $.get(url)
-        .done((data) => {
-            // console.log(data);
-            $("#navCartCount").text(data);
-        }).fail((error) => {
-            errorMessage(error);
-        });
-
-}
 
 
 const categoryIcons = {

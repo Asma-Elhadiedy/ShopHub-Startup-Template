@@ -2,6 +2,6 @@
 
 public interface ISystemSettingsService
 {
-    Task<string> GetDomainPath(bool isWWWRoot);
+    Task<string> GetStorageDomainPath(bool isWWWRoot);
 }
 

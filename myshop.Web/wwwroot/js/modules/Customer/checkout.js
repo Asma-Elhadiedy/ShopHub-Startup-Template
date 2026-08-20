@@ -110,6 +110,10 @@
         els.sumSubtotal.textContent = money(subtotal);
         els.sumTotal.textContent = money(subtotal); // add shipping/tax logic here if needed
 
+        // console.table(items);
+        const count = items.reduce((sum, i) => sum + i.quantity, 0);
+        $("#navCartCount").text(count);
+
         showState("content");
     }
 

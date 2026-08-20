@@ -5,7 +5,7 @@ namespace myshop.BLL.Services.General;
 public class SystemSettingsService(ILogger<LocalFileService> _logger, IUnitOfWork _unitOfWork) : ISystemSettingsService
 
 {
-    public async Task<string> GetDomainPath(bool isWWWRoot)
+    public async Task<string> GetStorageDomainPath(bool isWWWRoot)
     {
         try
         {            

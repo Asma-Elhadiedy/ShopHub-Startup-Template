@@ -6,4 +6,5 @@ public interface IProductService
 {
     Task<IEnumerable<SelectListItem>> PrepareListAsync(CancellationToken ct);
     Task<PagingDTO<ShoppingProductVM>> GetProductsByCategoryAsync(int categoryId, CancellationToken ct);
+    Task<ProductDetailsVM?> GetProductDetailsAsync(int productId, string? customerId, CancellationToken ct);
 }

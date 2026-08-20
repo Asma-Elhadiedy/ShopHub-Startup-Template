@@ -20,6 +20,7 @@ public static class DependencyInjection
                 .ValidateOnStart();
 
             services.AddScoped<ISeedData, SeedData>();
+            services.AddSingleton<DomainPathService>();
             services.AddScoped<IFileService, LocalFileService>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<ISystemSettingsService, SystemSettingsService>();
@@ -43,6 +44,7 @@ public static class DependencyInjection
             services.AddScoped<ICartService, CartService>();
             services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IProductReviewService, ProductReviewService>();
 
             return services;
         }

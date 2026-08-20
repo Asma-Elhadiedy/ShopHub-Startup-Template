@@ -58,20 +58,22 @@ public class CartService(
     {
         try
         {
-            Expression<Func<ShoppingCart, bool>> predicateExistingCart =
-                sc => sc.Status == eCartStatus.Active
-                    && ((!string.IsNullOrEmpty(sc.ApplicationUserId) && sc.ApplicationUserId == userId) || sc.SessionId == sessionId && sc.Status == eCartStatus.Active);
-
             //Expression<Func<ShoppingCart, bool>> predicateExistingCart =
-            //    !string.IsNullOrEmpty(userId)
-            //       ? sc => sc.ApplicationUserId == userId && sc.Status == eCartStatus.Active
-            //       : sc => sc.SessionId == sessionId && sc.Status == eCartStatus.Active;
+            //    sc => sc.Status == eCartStatus.Active
+            //        && ((!string.IsNullOrEmpty(sc.ApplicationUserId) && sc.ApplicationUserId == userId) 
+            //        || sc.SessionId == sessionId 
+            //        && sc.Status == eCartStatus.Active);
+
+            Expression<Func<ShoppingCart, bool>> predicateExistingCart =
+                !string.IsNullOrEmpty(userId)
+                   ? sc => sc.ApplicationUserId == userId && sc.Status == eCartStatus.Active
+                   : sc => sc.SessionId == sessionId && sc.Status == eCartStatus.Active;
 
             var shoppingCartId = await _unitOfWork.Repository<ShoppingCart>()
                 .GetItemSelectedAsync(predicateExistingCart, c => c.Id, ct);
 
             var cartContent = shoppingCartId == 0
-                ? Enumerable.Empty<CartItemVM>()
+                ? []
                 : await _unitOfWork.Repository<CartItem>()
                     .GetAllSelectedAsync(
                         ci => ci.ShoppingCartId == shoppingCartId,
@@ -145,9 +147,6 @@ public class CartService(
                     model.ShoppingCartId = cartId;
                     updatingCartResult = await AddUpdateCartItemQuantityAsync(model, ct);
                 }
-
-                if (updatingCartResult)
-                    return updatingCartResult;
 
                 return updatingCartResult;
             }, ct);
@@ -266,6 +265,7 @@ public class CartService(
             }
 
             cart.IsDeleted = true;
+            cart.DeletedAt = DateTime.UtcNow;
             cart.Status = eCartStatus.Removed;
             //_unitOfWork.Repository<ShoppingCart>().Remove(cart);
             if (await _unitOfWork.CompleteAsync(ct) > 0)
@@ -279,13 +279,15 @@ public class CartService(
         }
     }
 
-    
+
     private async Task<int> SoftDeleteActiveCarts(string userId)
     {
         return await _unitOfWork.Repository<ShoppingCart>().BulkUpdateAsync(
             sc => sc.ApplicationUserId == userId && sc.Status == eCartStatus.Active,
-            setters => setters.SetProperty(sc => sc.Status, eCartStatus.Removed).SetProperty(sc => sc.IsDeleted, true));
+            setters => setters.SetProperty(sc => sc.Status, eCartStatus.Removed)
+                            .SetProperty(sc => sc.IsDeleted, true)
+                            .SetProperty(sc => sc.DeletedAt, DateTime.UtcNow));
     }
 
-  
+
 }

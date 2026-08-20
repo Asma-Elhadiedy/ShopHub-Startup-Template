@@ -20,4 +20,5 @@ public class Product : DomainModelBase
     /// Navigation Collection
     /// </summary>
     public ICollection<CartItem>? CartItems { get; set; } = [];
+    public ICollection<Review>? Reviews { get; set; } = [];
 }

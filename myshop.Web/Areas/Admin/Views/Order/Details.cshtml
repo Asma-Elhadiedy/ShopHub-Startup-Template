@@ -1,0 +1,106 @@
+@using myshop.BLL.ViewModels.Admin.Orders
+@model OrderDetailsVM
+
+@{
+    ViewBag.Title = $"Order #{Model.Id}";
+    ViewBag.CardTitle = "Order Details";
+}
+
+<div class="card card-primary">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="card-title mb-0"><i class="fas fa-receipt mr-2"></i>Order #@Model.Id</h3>
+        <a asp-area="Admin" asp-controller="Order" asp-action="Index" class="btn btn-light btn-sm">
+            <i class="fas fa-arrow-left mr-1"></i>Back to orders
+        </a>
+    </div>
+    <div class="card-body">
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <h5>Order status</h5>
+                <p class="mb-1"><strong>@Model.OrderStatus</strong></p>
+                <small class="text-muted">Placed on @Model.OrderDate.ToLocalTime().ToString("dd MMM yyyy, HH:mm")</small>
+            </div>
+            <div class="col-md-4">
+                <h5>Payment</h5>
+                <p class="mb-1"><strong>@Model.PaymentStatus</strong></p>
+                <small class="text-muted">@Model.PaymentMethod</small>
+            </div>
+            <div class="col-md-4">
+                <h5>Customer</h5>
+                <p class="mb-1"><strong>@Model.CustomerName</strong></p>
+                <a href="mailto:@Model.EmailAddres">@Model.EmailAddres</a>
+            </div>
+        </div>
+
+        <h5 class="border-bottom pb-2">Items</h5>
+        @if (Model.Items.Count == 0)
+        {
+            <p class="text-muted">No items were found for this order.</p>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th class="text-center">Quantity</th>
+                            <th class="text-right">Unit price</th>
+                            <th class="text-right">Line total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@item.ProductName <small class="text-muted">(#@item.ProductId)</small></td>
+                                <td class="text-center">@item.Quantity</td>
+                                <td class="text-right">@item.UnitPrice.ToString("C")</td>
+                                <td class="text-right">@item.LineTotal.ToString("C")</td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="3" class="text-right">Subtotal</th>
+                            <td class="text-right">@Model.Subtotal.ToString("C")</td>
+                        </tr>
+                        <tr>
+                            <th colspan="3" class="text-right">Shipping</th>
+                            <td class="text-right">@Model.ShippingCost.ToString("C")</td>
+                        </tr>
+                        <tr>
+                            <th colspan="3" class="text-right">Total</th>
+                            <th class="text-right">@Model.TotalPrice.ToString("C")</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h5 class="border-bottom pb-2">Delivery details</h5>
+                <dl class="row">
+                    <dt class="col-sm-4">Address</dt><dd class="col-sm-8">@Model.Address</dd>
+                    <dt class="col-sm-4">City</dt><dd class="col-sm-8">@Model.City</dd>
+                    <dt class="col-sm-4">Phone</dt><dd class="col-sm-8">@(Model.PhoneNumber ?? "Not provided")</dd>
+                    <dt class="col-sm-4">Carrier</dt><dd class="col-sm-8">@(Model.Carrier ?? "Not assigned")</dd>
+                    <dt class="col-sm-4">Tracking</dt><dd class="col-sm-8">@(Model.TrakcingNumber ?? "Not assigned")</dd>
+                </dl>
+            </div>
+            <div class="col-md-6">
+                <h5 class="border-bottom pb-2">Additional information</h5>
+                <dl class="row">
+                    <dt class="col-sm-5">Shipping date</dt><dd class="col-sm-7">@(Model.ShippingDate?.ToLocalTime().ToString("dd MMM yyyy, HH:mm") ?? "Not shipped")</dd>
+                    <dt class="col-sm-5">Delivery date</dt><dd class="col-sm-7">@(Model.DeliveryDate?.ToLocalTime().ToString("dd MMM yyyy, HH:mm") ?? "Not delivered")</dd>
+                    <dt class="col-sm-5">Payment date</dt><dd class="col-sm-7">@(Model.PaymentDate?.ToLocalTime().ToString("dd MMM yyyy, HH:mm") ?? "Not paid")</dd>
+                    @if (!string.IsNullOrWhiteSpace(Model.AdditionalNotes))
+                    {
+                        <dt class="col-sm-5">Customer notes</dt><dd class="col-sm-7">@Model.AdditionalNotes</dd>
+                    }
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+@using myshop.BLL.ViewModels.Customer.Products
+@model ProductReviewFormVM
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h3 class="h5 mb-1">Your review</h3>
+                <p class="text-muted mb-0">You can update or remove your review.</p>
+            </div>
+            <span aria-label="@Model.Rating out of 5 stars">
+                @for (var star = 1; star <= 5; star++)
+                {
+                    <i class="@(star <= Model.Rating ? "fas" : "far") fa-star text-warning"></i>
+                }
+            </span>
+        </div>
+        <form asp-area="Customer" asp-controller="ProductReview" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="ReviewId" />
+            <input type="hidden" asp-for="ProductId" />
+            <div class="form-group">
+                <label asp-for="Rating"></label>
+                <select asp-for="Rating" class="form-control" required>
+                    @for (var rating = 1; rating <= 5; rating++)
+                    {
+                        <option value="@rating">@rating star@(rating == 1 ? "" : "s")</option>
+                    }
+                </select>
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comment"></label>
+                <textarea asp-for="Comment" class="form-control" rows="4" maxlength="4000"></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+            <button class="btn btn-primary" type="submit">Save changes</button>
+        </form>
+        <form id="js-deleteReviewForm" asp-area="Customer" asp-controller="ProductReview" asp-action="Delete" method="post" class="mt-2">
+            <input type="hidden" asp-for="ReviewId" />
+            <input type="hidden" asp-for="ProductId" />
+            <button class="btn btn-link text-danger px-0" type="button" onclick="removeReview()">Delete my review</button>
+        </form>
+    </div>
+</div>

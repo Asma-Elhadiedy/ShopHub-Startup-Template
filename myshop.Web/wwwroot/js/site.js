@@ -7,6 +7,19 @@ $(function () {
             width: "100%"
         });
 });
+function updateNavBadge() {
+    let url = `${appBasePath}/Customer/Cart/GetCartItemsCount`;
+
+    $.get(url)
+        .done((data) => {
+            // console.log(data);
+            $("#navCartCount").text(data);
+        }).fail((error) => {
+            errorMessage(error);
+        });
+
+}
+
 
 function successMessage({ title = "Success!", message = "Your action is applied successfully." } = {}) {
     swal.fire({

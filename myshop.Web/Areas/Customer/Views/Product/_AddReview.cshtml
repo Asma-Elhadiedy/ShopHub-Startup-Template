@@ -1,0 +1,29 @@
+@using myshop.BLL.ViewModels.Customer.Products
+@model ProductReviewFormVM
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h3 class="h5">Share your experience</h3>
+        <p class="text-muted">Your rating helps other customers make informed choices.</p>
+        <form asp-area="Customer" asp-controller="ProductReview" asp-action="Create" method="post">
+            <input type="hidden" asp-for="ProductId" />
+            <div class="form-group">
+                <label asp-for="Rating"></label>
+                <select asp-for="Rating" class="form-control" required>
+                    <option value="">Choose a rating</option>
+                    @for (var rating = 1; rating <= 5; rating++)
+                    {
+                        <option value="@rating">@rating star@(rating == 1 ? "" : "s")</option>
+                    }
+                </select>
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Comment"></label>
+                <textarea asp-for="Comment" class="form-control" rows="4" maxlength="4000"></textarea>
+                <span asp-validation-for="Comment" class="text-danger"></span>
+            </div>
+            <button class="btn btn-primary" type="submit">Publish review</button>
+        </form>
+    </div>
+</div>

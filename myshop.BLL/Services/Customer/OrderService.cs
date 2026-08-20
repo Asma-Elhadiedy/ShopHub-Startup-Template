@@ -8,10 +8,9 @@ public class OrderService(
     ILogger<OrderService> _logger,
     IUnitOfWork _unitOfWork,
     IEmailSenderService _emailSender,
-    IHttpContextAccessor _httpContextAccessor,
+    DomainPathService _domainPath,
     IMapper _mapper) : IOrderService
 {
-
     public async Task<PagingDTO<CustomerOrderDto>> GetAllOrdersAsync(FormDto model, string userId, CancellationToken ct)
     {
         try
@@ -55,7 +54,8 @@ public class OrderService(
                     sc => new AddDeliveryInfoVM
                     {
                         CartId = sc.Id
-                    });
+                    }
+                    , ct);
 
             return activeCartModel is null ? new() : activeCartModel;
         }
@@ -77,7 +77,7 @@ public class OrderService(
             var cart = await _unitOfWork.Repository<ShoppingCart>()
                 .GetItemAsync(sc =>
                     sc.Id == deliveryInfo.CartId
-                    && sc.ApplicationUserId == userId
+                    //&& sc.ApplicationUserId == userId
                     && sc.Status == eCartStatus.Active
                     , ct
                     , sc => sc.CartItems);
@@ -90,10 +90,14 @@ public class OrderService(
 
             var productIds = cart.CartItems?.Select(c => c.ProductId) ?? [];
             var products = await _unitOfWork.Repository<Product>()
-                .GetAllSelectedAsync(p => productIds.Contains(p.Id), p => new KeyValuePair<int, string>(p.Id, p.Name));
+                .GetAllSelectedAsync(
+                    p => productIds.Contains(p.Id),
+                    p => new KeyValuePair<int, string>(p.Id, p.Name)
+                    , ct);
 
             var productsDict = new Dictionary<int, string>(products);
 
+            cart.ApplicationUserId ??= userId;
             cart.Status = eCartStatus.CheckedOut;
             var order = cart.MapCartToOrder(deliveryInfo, productsDict, email);
             _unitOfWork.Repository<OrderHeader>().Add(order);
@@ -150,7 +154,8 @@ public class OrderService(
             if (existingPhoneNumber is not null)
                 return true;
 
-            var customer = await _unitOfWork.Repository<ApplicationUser>().GetItemAsync(u => u.Id == model.ApplicationUserId);
+            var customer = await _unitOfWork.Repository<ApplicationUser>()
+                .GetItemAsync(u => u.Id == model.ApplicationUserId, ct);
 
             if (customer is null)
             {
@@ -192,7 +197,7 @@ public class OrderService(
                 .Replace("{{DeliveryCity}}", order.City)
                 .Replace("{{DeliveryPhone}}", order.PhoneNumber)
                 .Replace("{{PaymentMethod}}", order.PaymentMethod.ToString())
-                .Replace("{{OrderTrackingUrl}}", GetDomainPath())
+                .Replace("{{OrderTrackingUrl}}", _domainPath.GetDomainPath())
                 .Replace("{{CurrentYear}}", DateTime.UtcNow.Year.ToString());
 
             return await _emailSender.SendAsync(new SendEmailDto(toName, toEmail, subject, emailBody), ct);
@@ -220,13 +225,5 @@ public class OrderService(
 
         return sb.ToString();
     }
-    string GetDomainPath()
-    {
-        var request = _httpContextAccessor.HttpContext?.Request;
-        if (request == null)
-            return string.Empty;
 
-        return $"{request.Scheme}://{request.Host}{request.PathBase}";
-    }
 }
-

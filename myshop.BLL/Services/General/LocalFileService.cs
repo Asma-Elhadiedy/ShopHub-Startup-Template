@@ -53,7 +53,7 @@ public class LocalFileService(IHostEnvironment _hostEnvironment, ILogger<LocalFi
         }
     }
 
-    bool IsUploadedImageValid(IFormFile file)
+    static bool IsUploadedImageValid(IFormFile file)
     {
         if (file.Length > 2 * 1024 * 1024) //2 MB
             return false;
