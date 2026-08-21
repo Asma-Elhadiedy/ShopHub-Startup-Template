@@ -8,7 +8,7 @@ public class CartsConfigurations : IEntityTypeConfiguration<ShoppingCart>
                 
         builder.HasMany(x => x.CartItems)
             .WithOne(x => x.ShoppingCart)
-            .HasForeignKey(x => x.ShoppingCartId)
+            .HasForeignKey(x => x.CartId)
             .OnDelete(DeleteBehavior.Cascade);
     }
 }

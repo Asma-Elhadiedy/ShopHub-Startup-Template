@@ -48,4 +48,10 @@ public class ApplicationDbContext : IdentityDbContext<
     public DbSet<ApplicationSetting> ApplicationSettings { get; set; }
     public DbSet<Review> Reviews { get; set; }
 
+
+    public DbSet<OrderStatus> OrderStatuses { get; set; }
+    public DbSet<CartStatus> CartStatuses { get; set; }
+    public DbSet<PaymentStatus> PaymentStatuses { get; set; }
+    public DbSet<PaymentMethod> PaymentMethods { get; set; }
+
 }

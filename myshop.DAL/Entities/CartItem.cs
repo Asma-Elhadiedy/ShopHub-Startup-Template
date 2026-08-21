@@ -15,7 +15,7 @@ public class CartItem : DomainModelBase
     public Product? Product { get; set; }
 
 
-    public int? ShoppingCartId { get; set; }
-    [ForeignKey(nameof(ShoppingCartId))]
+    public int CartId { get; set; }
+    [ForeignKey(nameof(CartId))]
     public ShoppingCart ShoppingCart { get; set; }
 }

@@ -64,7 +64,7 @@ public class CartController(ILogger<CartController> _logger, ICartService _cartS
 
             model = new()
             {
-                ShoppingCartId = HttpContext.Session.GetObject<CartVM>(ConstSession.CartContent)?.Id ?? 0,
+                CartId = HttpContext.Session.GetObject<CartVM>(ConstSession.CartContent)?.Id ?? 0,
                 ProductId = id,
                 SessionId = HttpContext.Session.Id,
                 UserId = User.Id

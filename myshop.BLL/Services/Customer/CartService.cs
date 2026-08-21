@@ -10,7 +10,7 @@ public class CartService(
         try
         {
             Expression<Func<CartItem, bool>> predicateCartItems = shoppingCartId > 0
-                ? ci => ci.ShoppingCartId == shoppingCartId
+                ? ci => ci.CartId == shoppingCartId
                 : userId is not null
                     ? ci => ci.ShoppingCart.ApplicationUserId == userId && ci.ShoppingCart.Status == eCartStatus.Active
                     : ci => ci.ShoppingCart.SessionId == sessionId && ci.ShoppingCart.Status == eCartStatus.Active;
@@ -31,7 +31,7 @@ public class CartService(
         {
             var cartContent = await _unitOfWork.Repository<CartItem>()
                 .GetAllSelectedAsync(
-                    ci => ci.ShoppingCartId == shoppingCartId,
+                    ci => ci.CartId == shoppingCartId,
                     ci => new CartItemVM
                     {
                         Id = ci.Id,
@@ -76,7 +76,7 @@ public class CartService(
                 ? []
                 : await _unitOfWork.Repository<CartItem>()
                     .GetAllSelectedAsync(
-                        ci => ci.ShoppingCartId == shoppingCartId,
+                        ci => ci.CartId == shoppingCartId,
                         ci => new CartItemVM
                         {
                             Id = ci.Id,
@@ -106,8 +106,8 @@ public class CartService(
         try
         {
             bool updatingCartResult;
-            Expression<Func<ShoppingCart, bool>> predicateExistingCart = model.ShoppingCartId != 0
-                ? p => p.Status == eCartStatus.Active && p.Id == model.ShoppingCartId
+            Expression<Func<ShoppingCart, bool>> predicateExistingCart = model.CartId != 0
+                ? p => p.Status == eCartStatus.Active && p.Id == model.CartId
                 : model.UserId is not null
                     ? p => p.Status == eCartStatus.Active && p.ApplicationUserId == model.UserId
                     : p => p.Status == eCartStatus.Active && p.SessionId == model.SessionId;
@@ -134,7 +134,7 @@ public class CartService(
                         Quantity = 1,
                         UnitPrice = productPrice,
                         ProductId = model.ProductId,
-                        ShoppingCartId = cartId
+                        CartId = cartId
                     }]
                     };
 
@@ -144,7 +144,7 @@ public class CartService(
                 }
                 else
                 {
-                    model.ShoppingCartId = cartId;
+                    model.CartId = cartId;
                     updatingCartResult = await AddUpdateCartItemQuantityAsync(model, ct);
                 }
 
@@ -166,7 +166,7 @@ public class CartService(
             Expression<Func<CartItem, bool>> predicateExistingItem = model.Id != 0
                 ? ci => ci.Id == model.Id
                 : ci => ci.ShoppingCart.Status == eCartStatus.Active
-                    && ci.ShoppingCartId == model.ShoppingCartId
+                    && ci.CartId == model.CartId
                     && ci.ProductId == model.ProductId;
 
             var existingCartItem = await _unitOfWork.Repository<CartItem>().GetItemAsync(predicateExistingItem, ct);
@@ -174,18 +174,18 @@ public class CartService(
             if (model.UserId is not null)
             {
                 var applicationUserId = await _unitOfWork.Repository<ShoppingCart>()
-                    .GetItemSelectedAsync(sc => sc.Id == model.ShoppingCartId, sc => sc.ApplicationUserId, ct);
+                    .GetItemSelectedAsync(sc => sc.Id == model.CartId, sc => sc.ApplicationUserId, ct);
 
                 //If the cart is not associated with a user,
                 //associate it with the provided userId and invalidate any old active carts for that user
                 if (applicationUserId is null)
                 {
                     var existingCart = await _unitOfWork.Repository<ShoppingCart>()
-                        .GetItemAsync(sc => sc.Id == model.ShoppingCartId, ct);
+                        .GetItemAsync(sc => sc.Id == model.CartId, ct);
 
                     if (existingCart is null)
                     {
-                        _logger.LogError("Failed to get cart with id: {id}", model.ShoppingCartId);
+                        _logger.LogError("Failed to get cart with id: {id}", model.CartId);
                         return false;
                     }
                     existingCart.ApplicationUserId = model.UserId;
@@ -205,7 +205,7 @@ public class CartService(
                     Quantity = 1,
                     UnitPrice = productPrice,
                     ProductId = model.ProductId,
-                    ShoppingCartId = model.ShoppingCartId
+                    CartId = model.CartId
                 };
 
                 _unitOfWork.Repository<CartItem>().Add(newCartItem);

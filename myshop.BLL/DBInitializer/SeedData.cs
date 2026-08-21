@@ -16,6 +16,11 @@ public class SeedData(ILogger<SeedData> _logger, ApplicationDbContext _dbContext
             await SeedDefaultCategories();
             await SeedDefaultProducts();
             await ClearOrphanedCarts();
+
+            await SeedDefaultCartStatuses();
+            await SeedDefaultOrderStatuses();
+            await SeedDefaultPaymentMethods();
+            await SeedDefaultPaymentStatuses();
         }
         catch (Exception ex)
         {
@@ -370,6 +375,75 @@ public class SeedData(ILogger<SeedData> _logger, ApplicationDbContext _dbContext
             Key = ConstApplicationSettingsKeys.FileStoragePath,
             Value = ConstPath.WWWRootPath
         });
+        await _dbContext.SaveChangesAsync();
+    }
+
+    private async Task SeedDefaultOrderStatuses()
+    {
+        if (await _dbContext.OrderStatuses.AnyAsync())
+            return;
+
+        var orderStatuses = Enum.GetValues<eOrderStatus>();
+        foreach (var s in orderStatuses)
+        {
+            _dbContext.OrderStatuses.Add(new OrderStatus
+            {
+                Id = (int)s,
+                Name = s.ToString()
+            });
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+    private async Task SeedDefaultCartStatuses()
+    {
+        if (await _dbContext.CartStatuses.AnyAsync())
+            return;
+
+        var cartStatuses = Enum.GetValues<eCartStatus>();
+        foreach (var s in cartStatuses)
+        {
+            _dbContext.CartStatuses.Add(new CartStatus
+            {
+                Id = (int)s,
+                Name = s.ToString()
+            });
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+    private async Task SeedDefaultPaymentStatuses()
+    {
+        if (await _dbContext.PaymentStatuses.AnyAsync())
+            return;
+
+        var paymentStatuses = Enum.GetValues<ePaymentStatus>();
+        foreach (var s in paymentStatuses)
+        {
+            _dbContext.PaymentStatuses.Add(new PaymentStatus
+            {
+                Id = (int)s,
+                Name = s.ToString()
+            });
+        }
+
+        await _dbContext.SaveChangesAsync();
+    }
+    private async Task SeedDefaultPaymentMethods()
+    {
+        if (await _dbContext.PaymentMethods.AnyAsync())
+            return;
+
+        var paymentMethods = Enum.GetValues<ePaymentMethod>();
+        foreach (var s in paymentMethods)
+        {
+            _dbContext.PaymentMethods.Add(new PaymentMethod
+            {
+                Id = (int)s,
+                Name = s.ToString()
+            });
+        }
+
         await _dbContext.SaveChangesAsync();
     }
 }
