@@ -14,5 +14,6 @@ public class LoginVM
 
     [Display(Name = "Remember me?")]
     public bool RememberMe { get; set; }
+    public string? redirectUrl { get; set; }
 
 }

@@ -45,7 +45,8 @@ public class AccountController(ILogger<AccountController> _logger, IAccountServi
                 var cartId = HttpContext.Session.GetInt32(ConstSession.CartId) ?? 0;
                 if (cartId > 0)
                     TempData["BeforeLoginCartId"] = cartId;
-
+                if (!string.IsNullOrEmpty(model.redirectUrl))
+                    return Redirect(model.redirectUrl);
                 return RedirectToRoleBased();
             }
             ModelState.AddModelError(nameof(model.Password), "Incorrect username or password");

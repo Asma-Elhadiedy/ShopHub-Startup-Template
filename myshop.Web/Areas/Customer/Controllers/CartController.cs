@@ -163,7 +163,7 @@ public class CartController(ILogger<CartController> _logger, ICartService _cartS
         try
         {
             if (!User.Identity!.IsAuthenticated)
-                return Ok(new { redirectUrl = Url.Action("Login", "Account", new { area = "" }) });
+                return Ok(new { redirectUrl = Url.Action("Login", "Account", new { area = "", redirectUrl = "/Customer/Order/Checkout" }) });
 
             if (User.Identity.IsAuthenticated && !User.IsInRole(ConstRoles.Customer))
                 return BadRequest(new ResponseMessageDto { Title = "Access Denied", Message = "Only customers can proceed to checkout." });

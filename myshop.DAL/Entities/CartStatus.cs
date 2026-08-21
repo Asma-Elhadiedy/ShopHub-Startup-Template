@@ -1,6 +1,6 @@
 namespace myshop.DAL.Entities;
 
-public class OrderStatus : DomainModelBase
+public class CartStatus : DomainModelBase
 {
     public string Name { get; set; } = default!;
 }
