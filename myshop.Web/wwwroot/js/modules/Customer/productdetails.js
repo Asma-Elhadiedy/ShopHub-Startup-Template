@@ -1,3 +1,6 @@
+$(function () {
+    updateNavBadge();
+});
 
 function addToCart(productId) {
     let url = `${appBasePath}/Customer/Cart/AddCartItem/${productId}`;
