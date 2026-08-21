@@ -2,6 +2,13 @@
 
 A clean ASP.NET Core MVC startup template designed for students to build E-Commerce projects using the Repository Pattern and Entity Framework Core.
 
+## For Live demo
+
+https://techmatescommerce.runasp.net/
+- Email: `techsupport@app.com`
+- Password: `?8*aY_£Lb44g`
+
+
 ## Features
 
 - ASP.NET Core MVC
