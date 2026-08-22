@@ -27,10 +27,12 @@ public class MappingProfile : Profile
 
         CreateMap<CartItem, CartItemVM>().ReverseMap();
         CreateMap<CartItem, AddCartItemVM>().ReverseMap();
+
         //CreateMap<Product, ProductDto>()
         //    .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
 
         CreateMap<OrderHeader, CustomerOrderDto>().ReverseMap();
+        CreateMap<AddDeliveryInfoVM, ApplicationUser>().ReverseMap();
 
     }
 

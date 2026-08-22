@@ -170,7 +170,7 @@ public class CartService(
                     && ci.ProductId == model.ProductId;
 
             var existingCartItem = await _unitOfWork.Repository<CartItem>().GetItemAsync(predicateExistingItem, ct);
-
+             
             if (model.UserId is not null)
             {
                 var applicationUserId = await _unitOfWork.Repository<ShoppingCart>()

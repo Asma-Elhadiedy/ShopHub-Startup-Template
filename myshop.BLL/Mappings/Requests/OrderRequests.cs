@@ -13,7 +13,7 @@ internal static class OrderRequests
                 OrderDate = DateTime.UtcNow,
                 OrderStatus = deliveryInfo.PaymentMethod == (int)ePaymentMethod.CashOnDelivery
                     ? eOrderStatus.Confirmed
-                    : eOrderStatus.WaitingForPayment,
+                    : eOrderStatus.WaitingForE_Payment,
                 PaymentStatus = deliveryInfo.PaymentMethod == (int)ePaymentMethod.CashOnDelivery
                     ? ePaymentStatus.WaitingForCash
                     : ePaymentStatus.Pending,

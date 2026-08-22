@@ -30,8 +30,10 @@ public class OrderController(ILogger<OrderController> _logger, IOrderService _or
     {
         try
         {
-            var model = await _orderService.PrepareDeliveryInfoModelAsync(User.Id!, ct);
-            return View(model);
+            var isValidCart = await _orderService.PrepareDeliveryInfoModelAsync(User.Id!, ct);
+            if (isValidCart)
+                return View();
+            return BadRequest();
         }
         catch (Exception ex)
         {

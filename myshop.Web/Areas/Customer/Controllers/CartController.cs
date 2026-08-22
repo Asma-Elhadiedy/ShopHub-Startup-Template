@@ -5,7 +5,7 @@ namespace myshop.Web.Areas.Customer.Controllers;
 public class CartController(ILogger<CartController> _logger, ICartService _cartService) : Controller
 {
     public IActionResult Index() => View();
-
+    
     public async Task<IActionResult> GetCart(CancellationToken ct)
     {
         try

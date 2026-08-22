@@ -41,12 +41,12 @@ const datatableOptions = {
             data: "totalPrice"
         },
         {
-            title: "Payment Method",
-            data: "paymentMethod"
-        },
-        {
             title: "Order Status",
             data: "orderStatus"
+        },
+        {
+            title: "Payment Method",
+            data: "paymentMethod"
         },
         {
             title: "Payment Status",

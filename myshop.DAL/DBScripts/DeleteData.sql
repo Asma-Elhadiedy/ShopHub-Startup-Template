@@ -14,3 +14,10 @@ DELETE FROM [dbo].[Carts]
 DELETE FROM [dbo].[AspNetUsers]
 DELETE FROM [dbo].[Products]
 DELETE FROM [dbo].[Categories]
+
+
+-- Delete Static Data
+DELETE FROM [dbo].[OrderStatuses]
+DELETE FROM [dbo].[CartStatuses]
+DELETE FROM [dbo].[PaymentStatuses]
+DELETE FROM [dbo].[PaymentMethods]

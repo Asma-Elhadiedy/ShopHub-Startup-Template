@@ -44,20 +44,14 @@ public class OrderService(
         }
     }
 
-    public async Task<AddDeliveryInfoVM> PrepareDeliveryInfoModelAsync(string userId, CancellationToken ct)
+    public async Task<bool> PrepareDeliveryInfoModelAsync(string userId, CancellationToken ct)
     {
         try
         {
-            var activeCartModel = await _unitOfWork.Repository<ShoppingCart>()
-                .GetItemSelectedAsync(
-                    sc => sc.ApplicationUserId == userId && sc.Status == eCartStatus.Active,
-                    sc => new AddDeliveryInfoVM
-                    {
-                        CartId = sc.Id
-                    }
-                    , ct);
+            var isActiveCartExist = await _unitOfWork.Repository<ShoppingCart>()
+                .IsExistAsync(sc => sc.ApplicationUserId == userId && sc.Status == eCartStatus.Active, ct);
 
-            return activeCartModel is null ? new() : activeCartModel;
+            return isActiveCartExist;
         }
         catch (Exception ex)
         {
@@ -77,7 +71,6 @@ public class OrderService(
             var cart = await _unitOfWork.Repository<ShoppingCart>()
                 .GetItemAsync(sc =>
                     sc.Id == deliveryInfo.CartId
-                    //&& sc.ApplicationUserId == userId
                     && sc.Status == eCartStatus.Active
                     , ct
                     , sc => sc.CartItems);
@@ -89,24 +82,21 @@ public class OrderService(
             }
 
             var productIds = cart.CartItems?.Select(c => c.ProductId) ?? [];
-            var products = await _unitOfWork.Repository<Product>()
+            var purchasedProducts = await _unitOfWork.Repository<Product>()
                 .GetAllSelectedAsync(
                     p => productIds.Contains(p.Id),
                     p => new KeyValuePair<int, string>(p.Id, p.Name)
                     , ct);
 
-            var productsDict = new Dictionary<int, string>(products);
+            var productsDict = new Dictionary<int, string>(purchasedProducts);
 
             cart.ApplicationUserId ??= userId;
-            //cart.Status = eCartStatus.CheckedOut;
             var order = cart.MapCartToOrder(deliveryInfo, productsDict, email);
             _unitOfWork.Repository<OrderHeader>().Add(order);
 
             if (await _unitOfWork.CompleteAsync(ct) > 0)
-            {
-                var isEmailSent = await SendOrderConfirmationEmailAsync(order, ct);
                 return (order.Id, (long)order.OrderItems?.Sum(i => i.Quantity * i.UnitPrice)!);
-            }
+
             return (0, 0);
         }
         catch (Exception ex)
@@ -122,16 +112,15 @@ public class OrderService(
         {
             var order = await _unitOfWork.Repository<OrderHeader>()
                 .GetItemAsync(
-                    o => o.Id == orderId, 
-                    ct, 
-                    o => o.OrderItems, 
+                    o => o.Id == orderId,
+                    ct,
+                    o => o.OrderItems,
                     o => o.ShoppingCart);
             if (order is null)
             {
                 _logger.LogWarning("Can't find order with ID: {orderId}", orderId);
                 return false;
             }
-
 
             order.ShoppingCart!.Status = eCartStatus.CheckedOut;
             if (order.PaymentMethod != ePaymentMethod.CashOnDelivery)

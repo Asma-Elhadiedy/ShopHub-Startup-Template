@@ -1,11 +1,4 @@
-﻿/**
- * Checkout page logic.
- * Reuses the same cart data shape as cart.js (ShoppingCartVM: Id, Items[]
- * with ProductId, ProductName, Quantity, UnitPrice).
- *
- * Adjust API_BASE / endpoint paths below to match your actual routes.
- */
-(function () {
+﻿(function () {
     "use strict";
 
     const API_BASE = `${appBasePath}/Customer`;
@@ -108,7 +101,7 @@
         });
 
         els.sumSubtotal.textContent = money(subtotal);
-        els.sumTotal.textContent = money(subtotal); // add shipping/tax logic here if needed
+        els.sumTotal.textContent = money(subtotal); 
 
         // console.table(items);
         const count = items.reduce((sum, i) => sum + i.quantity, 0);
