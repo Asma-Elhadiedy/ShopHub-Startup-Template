@@ -1,3 +1,4 @@
+
 namespace myshop.DAL.Configurations;
 
 public class ReviewConfigurations : IEntityTypeConfiguration<Review>
@@ -12,7 +13,6 @@ public class ReviewConfigurations : IEntityTypeConfiguration<Review>
             .IsRequired();
 
         builder.HasIndex(review => new { review.ProductId, review.ApplicationUserId });
-            //.IsUnique();
         
         builder.HasOne(review => review.Product)
             .WithMany(product => product.Reviews)

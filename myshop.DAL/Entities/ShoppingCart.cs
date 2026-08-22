@@ -1,6 +1,4 @@
 ﻿
-using System.Runtime.CompilerServices;
-
 namespace myshop.DAL.Entities;
 
 public class ShoppingCart : DomainModelBase

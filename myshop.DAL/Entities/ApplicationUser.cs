@@ -15,6 +15,9 @@ public class ApplicationUser : IdentityUser, IDomainModelMarker
     public string? ImagePath { get; set; }
 
 
+    /// <summary>
+    /// Navigation Collection
+    /// </summary>
     public ICollection<ShoppingCart>? Carts { get; set; } = [];
     public ICollection<ApplicationUserRole> UserRoles { get; set; } = [];
     public ICollection<Review>? Reviews { get; set; } = [];

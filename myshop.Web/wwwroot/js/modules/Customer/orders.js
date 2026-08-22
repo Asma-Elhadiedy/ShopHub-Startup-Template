@@ -11,12 +11,14 @@ $(function () {
             .done((success) => {
                 successMessage(success);
                 dataTable.ajax.reload();
-            }).fail((error) => {
-
+            })
+            .then(() => updateNavBadge())
+            .fail((error) => {
+                
+                errorMessage(error);
             });
-    }
-
-    updateNavBadge();
+    } else
+        updateNavBadge();
 
 });
 
@@ -45,6 +47,10 @@ const datatableOptions = {
         {
             title: "Order Status",
             data: "orderStatus"
+        },
+        {
+            title: "Payment Status",
+            data: "paymentStatus"
         },
         {
             title: "Delivery Date",

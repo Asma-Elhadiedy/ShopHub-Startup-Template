@@ -98,7 +98,7 @@ public class OrderService(
             var productsDict = new Dictionary<int, string>(products);
 
             cart.ApplicationUserId ??= userId;
-            cart.Status = eCartStatus.CheckedOut;
+            //cart.Status = eCartStatus.CheckedOut;
             var order = cart.MapCartToOrder(deliveryInfo, productsDict, email);
             _unitOfWork.Repository<OrderHeader>().Add(order);
 
@@ -116,19 +116,29 @@ public class OrderService(
         }
     }
 
-    public async Task<bool> UpdateOrderPaymentStatusAsync(int orderId, ePaymentStatus eStatus, CancellationToken ct)
+    public async Task<bool> UpdateOrderPaymentStatusAsync(int orderId, ePaymentStatus paymentStatus, CancellationToken ct)
     {
         try
         {
-            var order = await _unitOfWork.Repository<OrderHeader>().GetItemAsync(o => o.Id == orderId, ct, o => o.OrderItems);
+            var order = await _unitOfWork.Repository<OrderHeader>()
+                .GetItemAsync(
+                    o => o.Id == orderId, 
+                    ct, 
+                    o => o.OrderItems, 
+                    o => o.ShoppingCart);
             if (order is null)
             {
                 _logger.LogWarning("Can't find order with ID: {orderId}", orderId);
                 return false;
             }
 
-            order.OrderStatus = eOrderStatus.Confirmed;
-            order.PaymentStatus = eStatus;
+
+            order.ShoppingCart!.Status = eCartStatus.CheckedOut;
+            if (order.PaymentMethod != ePaymentMethod.CashOnDelivery)
+            {
+                order.PaymentStatus = paymentStatus;
+                order.OrderStatus = eOrderStatus.Confirmed;
+            }
             if (await _unitOfWork.CompleteAsync(ct) > 0)
             {
                 var isEmailSent = await SendOrderConfirmationEmailAsync(order, ct);

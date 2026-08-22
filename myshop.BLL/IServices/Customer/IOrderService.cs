@@ -9,5 +9,5 @@ public interface IOrderService
 
     Task<(int orderId, long total)> CreateOrderFromCartAsync(AddDeliveryInfoVM deliveryInfo, string userId, string email, CancellationToken ct);
     
-    Task<bool> UpdateOrderPaymentStatusAsync(int orderId, ePaymentStatus estatus, CancellationToken ct);
+    Task<bool> UpdateOrderPaymentStatusAsync(int orderId, ePaymentStatus paymentStatus, CancellationToken ct);
 }

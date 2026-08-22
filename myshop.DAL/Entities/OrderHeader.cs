@@ -35,14 +35,13 @@ public class OrderHeader : DomainModelBase
     /// <summary>
     /// Navigation Propert
     /// </summary>
-
-    [ForeignKey(nameof(ApplicationUserId))]
     public string ApplicationUserId { get; set; } = null!;
+    [ForeignKey(nameof(ApplicationUserId))]
     public ApplicationUser? ApplicationUser { get; set; }
 
 
-    [ForeignKey(nameof(CartId))]
     public int CartId { get; set; }
+    [ForeignKey(nameof(CartId))]
     public ShoppingCart? ShoppingCart { get; set; }
 
     /// <summary>

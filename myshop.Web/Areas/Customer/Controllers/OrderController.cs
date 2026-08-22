@@ -119,8 +119,8 @@ public class OrderController(ILogger<OrderController> _logger, IOrderService _or
             if (!isOrderUpdated)
                 return BadRequest();
 
-            HttpContext.Session.Remove("orderTotal");
             ResetCartSession(isClearCart: true);
+            HttpContext.Session.Remove("orderTotal");
             return Ok(new ResponseMessageDto { Title = "Success!", Message = "Your order is being prepared now!" });
         }
         catch (Exception ex)
