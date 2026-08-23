@@ -37,7 +37,7 @@ function errorMessage({ title = "Error", message = "Contact technical support." 
     });
 }
 
-function confirmationMessage({ title = "Are You Sure?", message = "You won't be able to revert this!", confirmButtonText = "Yes", cancelButtonText = "Cancel", confirmationCallBack = null } = {}) {
+function confirmationMessage({ title = "Are You Sure?", message = "You won't be able to revert this!", confirmButtonText = "Yes", cancelButtonText = "Cancel", confirmationCallBack = null, dismissCallBack = null } = {}) {
     Swal.fire({
         title,
         text: message,
@@ -48,8 +48,12 @@ function confirmationMessage({ title = "Are You Sure?", message = "You won't be 
     }).then((result) => {
         if (result.isConfirmed && typeof (confirmationCallBack) === "function")
             confirmationCallBack();
-        else
+        else {
+            if (typeof (dismissCallBack) === "function")
+                dismissCallBack();
+            console.log(result);
             return;
+        }
     });
 }
 

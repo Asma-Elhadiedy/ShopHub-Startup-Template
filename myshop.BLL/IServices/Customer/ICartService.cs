@@ -10,4 +10,6 @@ public interface ICartService
     Task<bool> AddUpdateCartItemQuantityAsync(AddCartItemVM model, CancellationToken ct);
     Task<bool> RemoveCartItemAsync(int cartItemId, CancellationToken ct);
     Task<bool> ClearCartAsync(int shoppingCartId, CancellationToken ct);
+    Task<int> SoftDeleteOldActiveCarts(string userId, CancellationToken ct, int cartId = 0);
+    Task UpdateCartOwnershipAsync(int shoppingCartId, string userId, CancellationToken ct);
 }

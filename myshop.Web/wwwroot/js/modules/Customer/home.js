@@ -16,12 +16,15 @@ $(function () {
                         .done((success) => {
                             updateNavBadge();
                         });
-
+                }, dismissCallBack: () => {
+                    $.post(`${appBasePath}/Customer/Cart/ClearPreviousCarts/${beforeLoginCartId}`)
+                        .done((success) => {
+                            updateNavBadge();
+                        });
                 }
             });
-    }
-
-    updateNavBadge();
+    } else
+        updateNavBadge();
 });
 
 function filterProductsByCategory(categoryId) {

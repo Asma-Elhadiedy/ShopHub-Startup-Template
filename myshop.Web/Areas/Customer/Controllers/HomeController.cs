@@ -12,6 +12,7 @@ public class HomeController(ILogger<HomeController> _logger, IProductService _pr
             var categories = await _productService.PrepareListAsync(ct);
             if (TempData["BeforeLoginCartId"] is int beforeLoginCartId)
             {
+                await _cartService.UpdateCartOwnershipAsync(beforeLoginCartId, User.Id!, ct);
                 //User has cart pre-login
                 //Handle the case where the user has another active cart from previous login
                 var oldCart = await _cartService.GetCartDataAsync(User.Id, HttpContext.Session.Id, ct);

@@ -5,16 +5,13 @@ namespace myshop.Web.Areas.Customer.Controllers;
 public class CartController(ILogger<CartController> _logger, ICartService _cartService) : Controller
 {
     public IActionResult Index() => View();
-    
+
     public async Task<IActionResult> GetCart(CancellationToken ct)
     {
         try
         {
             if (HttpContext.Session.GetObject<CartVM>(ConstSession.CartContent) is CartVM cachedCartContent)
-            {
-                //if (User.Identity.IsAuthenticated && cachedCartContent.UserId is not null)
                 return Json(cachedCartContent);
-            }
 
             var cartId = HttpContext.Session.GetInt32(ConstSession.CartId) ?? 0;
             var cartContent = await RepopulateCartSession(cartId, User.Id, HttpContext.Session.Id, ct);
@@ -62,9 +59,13 @@ public class CartController(ILogger<CartController> _logger, ICartService _cartS
             if (id == 0)
                 return BadRequest();
 
+            var cart = HttpContext.Session.GetObject<CartVM>(ConstSession.CartContent);
+            if (cart is not null && !string.IsNullOrEmpty(cart?.UserId) && cart.UserId != User.Id)
+                return BadRequest();
+
             model = new()
             {
-                CartId = HttpContext.Session.GetObject<CartVM>(ConstSession.CartContent)?.Id ?? 0,
+                CartId = cart?.Id ?? 0,
                 ProductId = id,
                 SessionId = HttpContext.Session.Id,
                 UserId = User.Id
@@ -142,6 +143,30 @@ public class CartController(ILogger<CartController> _logger, ICartService _cartS
                 return BadRequest();
 
             var isSuccess = await _cartService.ClearCartAsync(id, ct);
+            if (isSuccess)
+            {
+                ResetCartSession(isClearCart: true);
+                return Ok();
+            }
+            return BadRequest();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Failed to delete cart with id: {cartId}, for user with id: '{userId}'", id, User.Id);
+            return BadRequest();
+        }
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> ClearPreviousCarts(int id, CancellationToken ct)
+    {
+        try
+        {
+            if (id == 0)
+                return BadRequest();
+
+            var isSuccess = await _cartService.SoftDeleteOldActiveCarts(User.Id!, ct, id) > 0;
             if (isSuccess)
             {
                 ResetCartSession(isClearCart: true);

@@ -164,7 +164,7 @@
                 body: JSON.stringify({
                     id: itemId,
                     quantity: newQty,
-                    shoppingCartId: cartId,
+                    cartId: cartId,
                     productId: productId
                 })
             });
